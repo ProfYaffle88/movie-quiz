@@ -48,6 +48,7 @@ function updateTimer() {
 function setNextQuestion() {
     resetState();
     if (currentQuestionIndex < questionsList.length) {
+        updateCounter(); // Update question counter
         showQuestion(questionsList[currentQuestionIndex]);
         timeLeft = 60;
     } else {
@@ -128,6 +129,7 @@ function updateScore() {
 function showFinalScore() {
     clearFinalQuestion(); // Call the function to clear the final question
     finalScoreElement.innerText = score; // Assign final score
+    questionCounter.classList.add('hide'); // Hide question counter
     timerElement.classList.add('hide'); // Hide timer container
     currentScoreContainer.classList.add('hide'); // Hide current score container
     finalScoreContainer.classList.remove('hide'); // Show final score container
