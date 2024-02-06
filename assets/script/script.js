@@ -22,6 +22,7 @@ function startGame() {
     startButton.classList.add('hide');
     questionContainerElement.classList.remove('hide');
     currentScoreContainer.classList.remove('hide');
+    finalScoreContainer.classList.add('hide');
     
     getQuestions();
 
@@ -142,4 +143,12 @@ function showFinalScore() {
     currentScoreContainer.classList.add('hide'); // Hide current score container
     finalScoreContainer.classList.remove('hide'); // Show final score container
     tryAgainButton.classList.remove('hide'); // Show try again button
+}
+
+/* Remove last question from element */
+function clearFinalQuestion() {
+    questionElement.innerText = ''; // Clear question
+    while (answerButtonsElement.firstChild) {
+        answerButtonsElement.removeChild(answerButtonsElement.firstChild); // Remove answer buttons
+    }
 }
