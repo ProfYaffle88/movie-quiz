@@ -6,8 +6,8 @@ const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const scoreContainer = document.getElementById('score-container');
 
-let questionCount = document.getElementById('question-counter');
-let questionTimer = document.getElementById('timer');
+const questionCount = document.getElementById('question-counter');
+const questionTimer = document.getElementById('timer');
 
 let timer, timeLeft, score, currentQuestionIndex, questionsList;
 
