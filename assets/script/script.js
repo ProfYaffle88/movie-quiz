@@ -43,6 +43,7 @@ function getQuestions() {
     .then(response => response.json())
     .then(data => {
         questionsList = data;
+        updateCounter(); //Call update counter after questionList is loaded
         setNextQuestion();
     });
 }
