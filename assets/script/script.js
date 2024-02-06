@@ -5,6 +5,10 @@ const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const scoreContainer = document.getElementById('score-container');
+
+let questionCount = document.getElementById('question-counter');
+let questionTimer = document.getElementById('timer');
+
 let timer, timeLeft, score, currentQuestionIndex, questionsList;
 
 /* Event Listeners */
@@ -17,7 +21,10 @@ nextButton.addEventListener('click', () => {
 function startGame() {
     startButton.classList.add('hide');
     questionContainerElement.classList.remove('hide');
-    scoreContainer.classList.add('hide');
+    scoreContainer.classList.remove('hide');
+    questionCount.classList.remove('hide');
+    questionTimer.classList.remove('hide');
+    
     
     getQuestions();
 
