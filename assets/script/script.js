@@ -34,64 +34,121 @@ function startGame() {
     updateCounter();
     updateTimer();
     timer = setInterval(updateTimer, 1000); // Update timer every second
-}
 
-/* Retrieve set of 12 Film/TV questions from API */
-function getQuestions() {
-    let apiUrl = 'https://the-trivia-api.com/v2/questions?limit=12&categories=film_and_tv&region=GB';
-    fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-        questionsList = data;
-        updateCounter(); //Call update counter after questionList is loaded
-        setNextQuestion();
-    });
-}
-
-function updateCounter() {
-    const counterElement = document.getElementById('question-counter');
-    counterElement.innerText = `Question ${currentQuestionIndex + 1} of ${questionsList.length}`;
-}
-
-function updateTimer() {
-    timerElement.innerText = `Time Left: ${timeLeft} seconds`;
-    if (timeLeft <= 0 || currentQuestionIndex >= questionsList.length) {
-        clearInterval(timer); // Stop the timer when it reaches 0 or the quiz is finished
-        showFinalScore();
-    } else {
-        timeLeft--;
+    /* Retrieve set of 12 Film/TV questions from API */
+    function getQuestions() {
+        let apiUrl = 'https://the-trivia-api.com/v2/questions?limit=12&categories=film_and_tv&region=GB';
+        fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            questionsList = data;
+            updateCounter(); //Call update counter after questionList is loaded
+            setNextQuestion();
+        });
     }
-}
 
-function setNextQuestion() {
-    resetState();
-    if (currentQuestionIndex < questionsList.length) {
-        showQuestion(questionsList[currentQuestionIndex]);
-    } else {
-        showFinalScore(); // Call showFinalScore() if all questions have been answered
+    function updateCounter() {
+        const counterElement = document.getElementById('question-counter');
+        counterElement.innerText = `Question ${currentQuestionIndex + 1} of ${questionsList.length}`;
     }
-}
 
-function showQuestion(questionData) {
-    questionElement.innerText = questionData.question.text;
-    
-    // Combine correct and incorrect answers into one array
-    const answers = [...questionData.incorrectAnswers, questionData.correctAnswer];
-    // Shuffle the answers
-    answers.sort(() => Math.random() - 0.5);
-    
-    // Iterate through the shuffled answers and create buttons
-    answers.forEach(answer => {
-        const button = document.createElement('button');
-        button.innerText = answer;
-        button.classList.add('btn');
-        if (answer === questionData.correctAnswer) {
-            button.dataset.correct = true;
+    function updateTimer() {
+        timerElement.innerText = `Time Left: ${timeLeft} seconds`;
+        if (timeLeft <= 0 || currentQuestionIndex >= questionsList.length) {
+            clearInterval(timer); // Stop the timer when it reaches 0 or the quiz is finished
+            showFinalScore();
+        } else {
+            timeLeft--;
         }
-        button.addEventListener('click', selectAnswer);
-        answerButtonsElement.appendChild(button);
-    });
+    }
+
+    function setNextQuestion() {
+        resetState();
+        if (currentQuestionIndex < questionsList.length) {
+            showQuestion(questionsList[currentQuestionIndex]);
+        } else {
+            showFinalScore(); // Call showFinalScore() if all questions have been answered
+        }
+    }
+
+    function showQuestion(questionData) {
+        questionElement.innerText = questionData.question.text;
+        
+        // Combine correct and incorrect answers into one array
+        const answers = [...questionData.incorrectAnswers, questionData.correctAnswer];
+        // Shuffle the answers
+        answers.sort(() => Math.random() - 0.5);
+        
+        // Iterate through the shuffled answers and create buttons
+        answers.forEach(answer => {
+            const button = document.createElement('button');
+            button.innerText = answer;
+            button.classList.add('btn');
+            if (answer === questionData.correctAnswer) {
+                button.dataset.correct = true;
+            }
+            button.addEventListener('click', selectAnswer);
+            answerButtonsElement.appendChild(button);
+        });
+    }
 }
+
+// /* Retrieve set of 12 Film/TV questions from API */
+// function getQuestions() {
+//     let apiUrl = 'https://the-trivia-api.com/v2/questions?limit=12&categories=film_and_tv&region=GB';
+//     fetch(apiUrl)
+//     .then(response => response.json())
+//     .then(data => {
+//         questionsList = data;
+//         updateCounter(); //Call update counter after questionList is loaded
+//         setNextQuestion();
+//     });
+// }
+
+// function updateCounter() {
+//     const counterElement = document.getElementById('question-counter');
+//     counterElement.innerText = `Question ${currentQuestionIndex + 1} of ${questionsList.length}`;
+// }
+
+// function updateTimer() {
+//     timerElement.innerText = `Time Left: ${timeLeft} seconds`;
+//     if (timeLeft <= 0 || currentQuestionIndex >= questionsList.length) {
+//         clearInterval(timer); // Stop the timer when it reaches 0 or the quiz is finished
+//         showFinalScore();
+//     } else {
+//         timeLeft--;
+//     }
+// }
+
+// function setNextQuestion() {
+//     resetState();
+//     if (currentQuestionIndex < questionsList.length) {
+//         showQuestion(questionsList[currentQuestionIndex]);
+//     } else {
+//         showFinalScore(); // Call showFinalScore() if all questions have been answered
+//     }
+// }
+
+// function showQuestion(questionData) {
+//     questionElement.innerText = questionData.question.text;
+    
+//     // Combine correct and incorrect answers into one array
+//     const answers = [...questionData.incorrectAnswers, questionData.correctAnswer];
+//     // Shuffle the answers
+//     answers.sort(() => Math.random() - 0.5);
+    
+//     // Iterate through the shuffled answers and create buttons
+//     answers.forEach(answer => {
+//         const button = document.createElement('button');
+//         button.innerText = answer;
+//         button.classList.add('btn');
+//         if (answer === questionData.correctAnswer) {
+//             button.dataset.correct = true;
+//         }
+//         button.addEventListener('click', selectAnswer);
+//         answerButtonsElement.appendChild(button);
+//     });
+// }
 
 function resetState() {
     clearStatusClass(document.body);
