@@ -128,6 +128,7 @@ function updateScore() {
 function showFinalScore() {
     clearFinalQuestion(); // Call the function to clear the final question
     finalScoreElement.innerText = score; // Assign final score
+    timerElement.classList.add('hide'); // Hide timer container
     currentScoreContainer.classList.add('hide'); // Hide current score container
     finalScoreContainer.classList.remove('hide'); // Show final score container
     tryAgainButton.classList.remove('hide'); // Show try again button
