@@ -18,22 +18,6 @@ nextButton.addEventListener('click', () => {
     setNextQuestion();
 });
 
-/* Start Game function */
-function startGame() {
-    startButton.classList.add('hide');
-    questionContainerElement.classList.remove('hide');
-    currentScoreContainer.classList.remove('hide');
-    finalScoreContainer.classList.add('hide');
-    
-    getQuestions();
-
-    currentQuestionIndex = 0;
-    score = 0;
-    timeLeft = 60; // Set the initial time (in seconds)
-    updateTimer();
-    timer = setInterval(updateTimer, 1000); // Update timer every second
-}
-
 function updateCounter() {
     if (!questionsList) return; // Check if questionsList is defined
     const counterElement = document.getElementById('question-counter');
@@ -156,4 +140,20 @@ function clearFinalQuestion() {
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild); // Remove answer buttons
     }
+}
+
+/* Start Game function */
+function startGame() {
+    startButton.classList.add('hide');
+    questionContainerElement.classList.remove('hide');
+    currentScoreContainer.classList.remove('hide');
+    finalScoreContainer.classList.add('hide');
+    
+    getQuestions();
+
+    currentQuestionIndex = 0;
+    score = 0;
+    timeLeft = 60; // Set the initial time (in seconds)
+    updateTimer();
+    timer = setInterval(updateTimer, 1000); // Update timer every second
 }
