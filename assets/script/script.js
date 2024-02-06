@@ -4,14 +4,11 @@ const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
-const scoreContainer = document.getElementById('score-container');
-
-const questionCount = document.getElementById('question-counter');
-const questionTimer = document.getElementById('timer');
-
-const submitScoreButton = document.getElementById('submit-score-btn');
+const currentScoreContainer = document.getElementById('current-score-container');
+const finalScoreContainer = document.getElementById('final-score-container');
+const currentScoreElement = document.getElementById('current-score');
+const finalScoreElement = document.getElementById('final-score');
 const tryAgainButton = document.getElementById('try-again-btn');
-
 let timer, timeLeft, score, currentQuestionIndex, questionsList, answered;
 
 /* Event Listeners */
@@ -22,13 +19,9 @@ nextButton.addEventListener('click', () => {
 
 /* Start Game function */
 function startGame() {
-    score = 0;
     startButton.classList.add('hide');
     questionContainerElement.classList.remove('hide');
-    scoreContainer.classList.remove('hide');
-    questionCount.classList.remove('hide');
-    questionTimer.classList.remove('hide');
-    
+    currentScoreContainer.classList.remove('hide');
     
     getQuestions();
 
@@ -113,11 +106,9 @@ function selectAnswer(e) {
     setStatusClass(document.body, correct);
     if (correct) {
         score++;
+        updateScore(); // Update current score
     }
     Array.from(answerButtonsElement.children).forEach(button => {
-        if (button !== selectedButton && button.dataset.correct === 'true') {
-            setStatusClass(button, true); // Mark correct answers
-        }
         button.disabled = true; // Disable all buttons
     });
 
@@ -125,9 +116,8 @@ function selectAnswer(e) {
         currentQuestionIndex++;
         setNextQuestion();
         answered = false;
-    }, 3000); // Auto-advance after 4 seconds
+    }, 4000); // Auto-advance after 4 seconds
 }
-
 
 function setStatusClass(element, correctAnswer) {
     clearStatusClass(element);
@@ -143,22 +133,13 @@ function clearStatusClass(element) {
     element.classList.remove('wrong');
 }
 
-function showFinalScore() {
-    const finalScoreElement = document.getElementById('final-score');
-    finalScoreElement.innerText = `Your Final Score: ${score}`;
-    scoreContainer.classList.remove('hide');
-
-    submitScoreButton.classList.remove('hide');
-    tryAgainButton.classList.remove('hide');
+function updateScore() {
+    currentScoreElement.innerText = score; // Update current score
 }
 
-/* Scoreboard */
-submitScoreButton.addEventListener('click', () => {
-    // Code to submit score to leaderboard
-});
-
-tryAgainButton.addEventListener('click', () => {
-    startGame();
-    submitScoreButton.classList.add('hide');
-    tryAgainButton.classList.add('hide');
-});
+function showFinalScore() {
+    finalScoreElement.innerText = score; // Assign final score
+    currentScoreContainer.classList.add('hide'); // Hide current score container
+    finalScoreContainer.classList.remove('hide'); // Show final score container
+    tryAgainButton.classList.remove('hide'); // Show try again button
+}

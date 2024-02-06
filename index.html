@@ -20,15 +20,24 @@
                 <button class="btn">Answer 4</button>
             </div>
         </div>
+
         <div class="counter-timer">
             <p id="question-counter" class="hide"></p>
             <p id="timer" class="hide"></p>
         </div>
-        <div id="score-container" class="hide">
-            <h2>Your Final Score:</h2>
-            <p id="final-score">0</p><div>/12</div>
-            <button id="try-again-btn" class="btn">Try Again</button>
+
+        <div id="score-container">
+            <div id="current-score-container" class="hide">
+                <h2>Current Score: </h2>
+                <div id="current-score">0</div><div>/12</div>
+            </div>
+            <div id="final-score-container" class="hide">
+                <h2>Your Final Score: </h2>
+                <div id="final-score">0</div><div>/12</div>
+            </div>
+            <button id="try-again-btn" class="btn hide">Try Again</button>
         </div>
+
         <div class="controls">
             <button id="start-btn" class="start-btn btn">Start</button>
             <button id="next-btn" class="next-btn btn hide">Next</button>
