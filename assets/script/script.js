@@ -65,6 +65,8 @@ function setNextQuestion() {
     resetState();
     if (currentQuestionIndex < questionsList.length) {
         showQuestion(questionsList[currentQuestionIndex]);
+    } else {
+        showFinalScore(); // Call showFinalScore() if all questions have been answered
     }
 }
 
@@ -138,7 +140,9 @@ function updateScore() {
     currentScoreElement.innerText = score; // Update current score
 }
 
+/* Show the final score and hide quiz elements */
 function showFinalScore() {
+    clearFinalQuestion(); // Call the function to clear the final question
     finalScoreElement.innerText = score; // Assign final score
     currentScoreContainer.classList.add('hide'); // Hide current score container
     finalScoreContainer.classList.remove('hide'); // Show final score container
