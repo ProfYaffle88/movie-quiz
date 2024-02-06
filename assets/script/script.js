@@ -49,6 +49,7 @@ function setNextQuestion() {
     resetState();
     if (currentQuestionIndex < questionsList.length) {
         showQuestion(questionsList[currentQuestionIndex]);
+        timeLeft = 60;
     } else {
         showFinalScore(); // Call showFinalScore() if all questions have been answered
     }
