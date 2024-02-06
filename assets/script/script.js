@@ -9,7 +9,10 @@ const scoreContainer = document.getElementById('score-container');
 const questionCount = document.getElementById('question-counter');
 const questionTimer = document.getElementById('timer');
 
-let timer, timeLeft, score, currentQuestionIndex, questionsList;
+const submitScoreButton = document.getElementById('submit-score-btn');
+const tryAgainButton = document.getElementById('try-again-btn');
+
+let timer, timeLeft, score, currentQuestionIndex, questionsList, answered;
 
 /* Event Listeners */
 startButton.addEventListener('click', startGame);
@@ -19,6 +22,7 @@ nextButton.addEventListener('click', () => {
 
 /* Start Game function */
 function startGame() {
+    score = 0;
     startButton.classList.add('hide');
     questionContainerElement.classList.remove('hide');
     scoreContainer.classList.remove('hide');
@@ -97,9 +101,13 @@ function resetState() {
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild);
     }
+    answered = false;
 }
 
 function selectAnswer(e) {
+    if (answered) return; // Prevent multiple clicks
+    answered = true;
+
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct === 'true';
     setStatusClass(document.body, correct);
@@ -107,16 +115,19 @@ function selectAnswer(e) {
         score++;
     }
     Array.from(answerButtonsElement.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct === 'true');
+        if (button !== selectedButton && button.dataset.correct === 'true') {
+            setStatusClass(button, true); // Mark correct answers
+        }
+        button.disabled = true; // Disable all buttons
     });
-    if (currentQuestionIndex < questionsList.length - 1) {
-        nextButton.classList.remove('hide');
-    } else {
-        clearInterval(timer);
-        showFinalScore();
-    }
-    currentQuestionIndex++;
+
+    setTimeout(() => {
+        currentQuestionIndex++;
+        setNextQuestion();
+        answered = false;
+    }, 3000); // Auto-advance after 4 seconds
 }
+
 
 function setStatusClass(element, correctAnswer) {
     clearStatusClass(element);
@@ -136,4 +147,18 @@ function showFinalScore() {
     const finalScoreElement = document.getElementById('final-score');
     finalScoreElement.innerText = `Your Final Score: ${score}`;
     scoreContainer.classList.remove('hide');
+
+    submitScoreButton.classList.remove('hide');
+    tryAgainButton.classList.remove('hide');
 }
+
+/* Scoreboard */
+submitScoreButton.addEventListener('click', () => {
+    // Code to submit score to leaderboard
+});
+
+tryAgainButton.addEventListener('click', () => {
+    startGame();
+    submitScoreButton.classList.add('hide');
+    tryAgainButton.classList.add('hide');
+});
