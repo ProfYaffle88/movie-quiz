@@ -4,6 +4,7 @@ const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
+const timerElement = document.getElementById('timer');
 const currentScoreContainer = document.getElementById('current-score-container');
 const finalScoreContainer = document.getElementById('final-score-container');
 const currentScoreElement = document.getElementById('current-score');
@@ -22,6 +23,7 @@ function startGame() {
     startButton.classList.add('hide');
     questionContainerElement.classList.remove('hide');
     currentScoreContainer.classList.remove('hide');
+    timerElement.classList.remove('hide');
     finalScoreContainer.classList.add('hide');
     
     getQuestions();
@@ -51,7 +53,6 @@ function updateCounter() {
 }
 
 function updateTimer() {
-    const timerElement = document.getElementById('timer');
     timerElement.innerText = `Time Left: ${timeLeft} seconds`;
     if (timeLeft <= 0 || currentQuestionIndex >= questionsList.length) {
         clearInterval(timer); // Stop the timer when it reaches 0 or the quiz is finished
