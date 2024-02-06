@@ -38,7 +38,7 @@ function startGame() {
 
 /* Retrieve set of 12 Film/TV questions from API */
 function getQuestions() {
-    let apiUrl = 'https://the-trivia-api.com/v2/questions?limit=12&?categories=film_and_tv&?region=GB';
+    let apiUrl = 'https://the-trivia-api.com/v2/questions?limit=12&categories=film_and_tv&region=GB';
     fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
