@@ -1,8 +1,8 @@
 /* Declare constants */
 const startButton = document.getElementById('start-btn');
-const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
+const questionCounter = document.getElementById('question-counter');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const timerElement = document.getElementById('timer');
 const currentScoreContainer = document.getElementById('current-score-container');
@@ -14,9 +14,7 @@ let timer, timeLeft, score, currentQuestionIndex, questionsList, answered;
 
 /* Event Listeners */
 startButton.addEventListener('click', startGame);
-nextButton.addEventListener('click', () => {
-    setNextQuestion();
-});
+
 
 function updateCounter() {
     if (!questionsList) return; // Check if questionsList is defined
@@ -37,6 +35,7 @@ function getQuestions() {
 }
 
 function updateTimer() {
+    if (!questionsList) return; // Check if questionsList is defined
     timerElement.innerText = `Time Left: ${timeLeft} seconds`;
     if (timeLeft <= 0 || currentQuestionIndex >= questionsList.length) {
         clearInterval(timer); // Stop the timer when it reaches 0 or the quiz is finished
@@ -78,7 +77,6 @@ function showQuestion(questionData) {
 
 function resetState() {
     clearStatusClass(document.body);
-    nextButton.classList.add('hide');
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild);
     }
@@ -148,6 +146,9 @@ function startGame() {
     questionContainerElement.classList.remove('hide');
     currentScoreContainer.classList.remove('hide');
     finalScoreContainer.classList.add('hide');
+    questionCounter.classList.remove('hide');
+    timerElement.classList.remove('hide');
+
     
     getQuestions();
 
