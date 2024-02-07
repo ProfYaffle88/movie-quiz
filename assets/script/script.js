@@ -13,6 +13,7 @@ const tryAgainButton = document.getElementById('try-again-btn');
 const leaderboardButton = document.getElementById('leaderboard-form');
 
 let playerNameInput = document.getElementById('player-name-submit');
+let playerName = '';
 
 let timer, timeLeft, score, currentQuestionIndex, questionsList, answered;
 let leaderboardScores = []; //Set leaderboard scores as an empty array - pull existing leaderboard?
@@ -172,10 +173,17 @@ function showFinalScore() {
     leaderboardButton.classList.remove('hide'); // Show sumbit score button
 
     // Add event listener to playerNameInput
-    playerNameInput.addEventListener('input', function(event) {
-        // Update playerName variable when input value changes
-        playerName = event.target.innerText;
-    });
+playerNameInput.addEventListener('input', function(event) {
+    // Log the event and its properties to check for any issues
+    console.log('Event:', event);
+    console.log('Input value:', event.target.value);
+
+    // Update playerName variable when input value changes
+    playerName = event.target.value;
+
+    // Log playerName to verify its value
+    console.log('Player name:', playerName);
+});
 }
 
 /* Remove last question from element at end of game */
@@ -190,8 +198,7 @@ function clearFinalQuestion() {
 function captureScore() {
     // Remove event listener from start button - Was causing error?
     startButton.removeEventListener('click', startGame); 
-    // Get player name from form input
-    let playerName = playerNameInput.innerText;
+    
 
     // Get final score from finalScoreContainer
     let finalScore = finalScoreElement.innerText;
