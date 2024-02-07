@@ -39,6 +39,17 @@ function eventListeners() {
 
         });
     }
+
+    // Event Listener for score submit
+    if (leaderboardButton) {
+        document.getElementById('leaderboard-form').addEventListener('submit', function(event) {
+            // Prevent default form submission behavior
+            event.preventDefault();
+            
+            // Call the captureScore function
+            captureScore();
+        });
+    }
 }
 eventListeners();
 
@@ -199,8 +210,11 @@ function captureScore() {
     // Remove event listener from start button - Was causing error?
     startButton.removeEventListener('click', startGame); 
     
+    // Get player name from form input
+    playerNameInput = document.getElementById('player-name');
+    playerName = playerNameInput.value;
 
-    // Get final score from finalScoreContainer
+    // Get final score from finalScoreElement
     let finalScore = finalScoreElement.innerText;
 
     // Create an object to store player name and final score
@@ -212,24 +226,21 @@ function captureScore() {
     // Switch to scoreboard page
     window.location.href = 'leaderboard.html';
 
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get the table rows from the leaderboard
-        let leaderboardRows = document.querySelectorAll('#leaderboard tbody tr');
+    // Get the table rows from the leaderboard
+    let leaderboardRows = document.querySelectorAll('#leaderboard tbody tr');
 
-        // Clear existing scores from the scores array
-        leaderboardScores = [];
+    // Clear existing scores from the scores array
+    leaderboardScores = [];
 
-        // Iterate over the table rows and extract data
-        leaderboardRows.forEach(row => {
-            let name = row.cells[1].innerText;
-            let score = parseInt(row.cells[2].innerText); // Assuming the score is a number
-            leaderboardScores.push({ name: name, score: score });
-        });
-
-        // Add the new player score object to the leaderboardScores array
-        leaderboardScores.push(playerScore);
+    // Iterate over the table rows and extract data
+    leaderboardRows.forEach(row => {
+        let name = row.cells[1].innerText;
+        let score = parseInt(row.cells[2].innerText); // Assuming the score is a number
+        leaderboardScores.push({ name: name, score: score });
     });
-        
+
+    // Add the new player score object to the leaderboardScores array
+    leaderboardScores.push(playerScore);
 
     // Update the leaderboard view
     updateLeaderboardView();
