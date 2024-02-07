@@ -1,3 +1,7 @@
+/* Import React to make Scoreboard component */
+
+// import React, { Component } from 'react';
+
 /* Declare constants */
 const startButton = document.getElementById('start-btn');
 const questionContainerElement = document.getElementById('question-container');
