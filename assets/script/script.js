@@ -181,9 +181,6 @@ function captureScore() {
         score: finalScore
     };
 
-    // Navigate to leaderboard.html
-    window.location.href = 'leaderboard.html';
-
     // Get the table rows from the leaderboard
     let leaderboardRows = document.querySelectorAll('#leaderboard tbody tr');
 
