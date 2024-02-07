@@ -15,20 +15,28 @@ let timer, timeLeft, score, currentQuestionIndex, questionsList, answered;
 let leaderboardScores = []; //Set leaderboard scores as an empty array - pull existing leaderboard?
 
 /* Event Listeners */
-// Add event listener to the start button only if it exists
-if (startButton) {
-    startButton.addEventListener('click', startGame);
+function eventListeners() {
+    // Add event listener to the start button only if it exists
+    if (startButton) {
+        startButton.addEventListener('click', startGame);
+    }
+
+    // Capture data and submit to leaderboard when button clicked
+    if (leaderboardButton) {
+        document.getElementById('leaderboard-form').addEventListener('submit', function eventHandler(event) {
+            // Prevent default form submission behavior
+            event.preventDefault();
+            
+            // Call the captureScore function
+            captureScore();
+
+            // Remove the event listener
+            this.removeEventListener('click', eventHandler);
+
+        });
+    }
 }
-
-// Capture data and submit to leaderboard when button clicked
-document.getElementById('leaderboard-form').addEventListener('submit', function(event) {
-    // Prevent default form submission behavior
-    event.preventDefault();
-    
-    // Call the captureScore function
-    captureScore();
-});
-
+eventListeners();
 
 /* Updates the question counter */
 function updateCounter() {
@@ -171,6 +179,8 @@ function clearFinalQuestion() {
 
 /* Function to capture player name and final score */
 function captureScore() {
+    // Remove event listener from start button - Was causing error?
+    startButton.removeEventListener('click', startGame); 
     // Get player name from form input
     let playerNameInput = document.getElementById('player-name-submit'); // Assuming input field has id 'player-name'
     let playerName = playerNameInput.innerText;
