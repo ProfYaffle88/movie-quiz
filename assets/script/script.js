@@ -14,7 +14,7 @@ const leaderboardButton = document.getElementById('leaderboard-form');
 let timer, timeLeft, score, currentQuestionIndex, questionsList, answered;
 let leaderboardScores = []; //Set leaderboard scores as an empty array - pull existing leaderboard?
 
-/* Event Listeners */
+/* Event Listeners - "if target element exists"*/
 function eventListeners() {
     // Add event listener to the start button only if it exists
     if (startButton) {
