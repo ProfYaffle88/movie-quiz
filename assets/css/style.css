@@ -102,10 +102,9 @@
     margin: 5px 0;
 }
 
-#question-counter,
 #timer {
-    text-align: center;
-    font-size: 1.2rem;
-    margin: 10px 0; /* Add margin on top and bottom */
-    color: black;
+  font-size: 1.2rem;
+  color: black;
+  margin: 10px 0; /* Add margin on top and bottom */
+  /* display: none; */ /* Comment out or remove this line */
 }

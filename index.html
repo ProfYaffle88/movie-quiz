@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/images/favicon_io (6)/favicon-16x16.png" type="image/x-icon"> <!--Movie Madness Favicon-->
     <script defer src="assets/script/script.js"></script>
-    <title>Quiz App</title>
+    <title>Movie Madness</title>
 </head>
-<body>
 
-   
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="assets/images/MovieMadness.png" alt="Movie Madness Logo"> <!-- header -->
+        </div>
+    </header>
+
     <div class="container">
         <div id="question-container" class="hide">
             <div id="question">Question</div>
@@ -29,11 +36,13 @@
         <div id="score-container">
             <div id="current-score-container" class="hide">
                 <h2>Current Score: </h2>
-                <div id="current-score">0</div><div>/12</div>
+                <div id="current-score">0</div>
+                <div>/12</div>
             </div>
             <div id="final-score-container" class="hide">
                 <h2>Your Final Score: </h2>
-                <div id="final-score"></div><div>/12</div>
+                <div id="final-score"></div>
+                <div>/12</div>
             </div>
             <a id="try-again-btn" href="index.html" class="button btn hide">Try Again</a>
         </div>
@@ -43,5 +52,12 @@
             <button id="next-btn" class="next-btn btn hide">Next</button>
         </div>
     </div>
+
+    <footer>
+        <div class="footer-image">
+            <img src="assets/images/MovieReel.jpeg" alt="Film Reel"> <!--Footer-->
+        </div>
+    </footer>
 </body>
+
 </html>

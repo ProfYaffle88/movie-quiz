@@ -23,7 +23,7 @@ function startGame() {
     startButton.classList.add('hide');
     questionContainerElement.classList.remove('hide');
     currentScoreContainer.classList.remove('hide');
-    timerElement.classList.remove('hide');
+    timerElement.classList.remove();
     finalScoreContainer.classList.add('hide');
     
     getQuestions();
