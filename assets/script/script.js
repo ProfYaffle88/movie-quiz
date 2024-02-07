@@ -15,8 +15,11 @@ let timer, timeLeft, score, currentQuestionIndex, questionsList, answered;
 let leaderboardScores = []; //Set leaderboard scores as an empty array - pull existing leaderboard?
 
 /* Event Listeners */
-// Start the game when button clicked
-startButton.addEventListener('click', startGame);
+// Add event listener to the start button only if it exists
+if (startButton) {
+    startButton.addEventListener('click', startGame);
+}
+
 // Capture data and submit to leaderboard when button clicked
 document.getElementById('leaderboard-form').addEventListener('submit', function(event) {
     // Prevent default form submission behavior
@@ -220,25 +223,28 @@ function updateLeaderboardView() {
     // Sort scores
     leaderboardScores.sort((a, b) => b.score - a.score);
 
-    //Assign medal colours to an array
+    // Assign medal colours to an array
     let colors = ["gold", "silver", "#cd7f32"];
 
-    for (let i = 0; i < leaderboard.length; i++) {
-        let rank = document.createElement("td");
-        let name = document.createElement("td");
-        let score = document.createElement("td");
-        
-        rank.innerText = i + 1; // rank starts from 1
-        name.innerText = leaderboardScores[i].name;
-        score.innerText = leaderboardScores[i].score;
+    for (let i = 0; i < leaderboardScores.length; i++) {
+        let score = leaderboardScores[i];
 
-        let scoreRow = document.createElement("tr");
-        //Top 3 scores get medal colour applied to row background
-        if (i < 3) { // apply color for top 3 ranks
-            scoreRow.style.backgroundColor = colors[i];
+        let row = tbody.insertRow();
+        let rankCell = row.insertCell();
+        let nameCell = row.insertCell();
+        let scoreCell = row.insertCell();
+
+        rankCell.textContent = i + 1;
+        nameCell.textContent = score.name;
+        scoreCell.textContent = score.score;
+
+        // Apply color for top 3 ranks
+        if (i < 3) {
+            row.style.backgroundColor = colors[i];
         }
     }
 }
+
 
 /* Start Game function */
 function startGame() {
