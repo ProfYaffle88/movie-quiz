@@ -44,9 +44,21 @@ body {
   display: none;
 }
 /*Homepage Styles*/
-.reel {
-background-repeat: repeat-x;
+
+/*Logo*/
+
+.logo {
+  position: fixed;
+  top: 25px;
 }
+
+.logo img {
+  height: 150px;
+  width: 150px;
+  border-radius: 25%;
+}
+
+
 /*Colour Change for Correct/incorrect answers*/
 body.correct {
 --hue: var(--hue-correct);
