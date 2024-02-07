@@ -8,17 +8,28 @@
     <title>Quiz App</title>
 </head>
 <body>
-    <table class="leaderboard">
-        <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th>Score</th>
-        </tr>
-        <tr>
-            <th>1</th> <!-- index postion + 1 -->
-            <th>James</th> <!-- name entered -->
-            <th>9</th> <!-- final score -->
-        </tr>
+
+    <table id="leaderboard">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>1</th> <!-- index postion + 1 -->
+                <th>James</th> <!-- name entered -->
+                <th>9</th> <!-- final score -->
+            </tr>
+        </tbody>  
     </table>
+
+    <!-- Try again button - takes you back to landing page -->
+    <div id="try-again">
+        <a id="try-again-btn" href="index.html" class="button btn hide">Try Again</a>
+    </div>
+
 </body>
 </html>

@@ -41,7 +41,18 @@
 
         <div class="controls">
             <button id="start-btn" class="start-btn btn">Start</button>
-            <button id="next-btn" class="next-btn btn hide">Next</button>
+        </div>
+
+        <div id="leaderboard-area">
+            <!-- View the Leaderboard link button - Should this be visible before starting game? In case a user just want to look at leaderboard without playing? -->
+            <a id="leaderboard-btn" class="leaderboard-btn btn hide" href="leaderboard.html">See the Leaderboard</a>
+            <!-- Scoreboard submission form -->
+            <form id="leaderboard-form" class="hide" action="POST">
+                <!-- Enter name to submit score to leaderboard -->
+                <label for="player-name-submit">Your Name:</label>
+                <input id="player-name" type="text">
+                <input type="submit" value="Submit to Leaderboard"> <!-- Connect Function and move to leaderboard.html-->
+            </form>
         </div>
     </div>
 </body>

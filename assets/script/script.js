@@ -1,7 +1,3 @@
-/* Import React to make Scoreboard component */
-
-// import React, { Component } from 'react';
-
 /* Declare constants */
 const startButton = document.getElementById('start-btn');
 const questionContainerElement = document.getElementById('question-container');
@@ -14,10 +10,22 @@ const finalScoreContainer = document.getElementById('final-score-container');
 const currentScoreElement = document.getElementById('current-score');
 const finalScoreElement = document.getElementById('final-score');
 const tryAgainButton = document.getElementById('try-again-btn');
+const leaderboardButton = document.getElementById('leaderboard-form');
 let timer, timeLeft, score, currentQuestionIndex, questionsList, answered;
+let leaderboardScores = []; //Set leaderboard scores as an empty array - pull existing leaderboard?
 
 /* Event Listeners */
+// Start the game when button clicked
 startButton.addEventListener('click', startGame);
+// Capture data and submit to leaderboard when button clicked
+document.getElementById('leaderboard-form').addEventListener('submit', function(event) {
+    // Prevent default form submission behavior
+    event.preventDefault();
+    
+    // Call the captureScore function
+    captureScore();
+});
+
 
 /* Updates the question counter */
 function updateCounter() {
@@ -147,6 +155,7 @@ function showFinalScore() {
     currentScoreContainer.classList.add('hide'); // Hide current score container
     finalScoreContainer.classList.remove('hide'); // Show final score container
     tryAgainButton.classList.remove('hide'); // Show try again button
+    leaderboardButton.classList.remove('hide'); // Show sumbit score button
 }
 
 /* Remove last question from element at end of game */
@@ -154,6 +163,82 @@ function clearFinalQuestion() {
     questionElement.innerText = ''; // Clear question
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild); // Remove answer buttons
+    }
+}
+
+/* Function to capture player name and final score */
+function captureScore() {
+    // Get player name from form input
+    let playerNameInput = document.getElementById('player-name'); // Assuming input field has id 'player-name'
+    let playerName = playerNameInput.value;
+
+    // Get final score from finalScoreContainer
+    let finalScore = finalScoreContainer.value;
+
+    // Create an object to store player name and final score
+    let playerScore = {
+        name: playerName,
+        score: finalScore
+    };
+
+    // Navigate to leaderboard.html
+    window.location.href = 'leaderboard.html';
+
+    // Get the table rows from the leaderboard
+    let leaderboardRows = document.querySelectorAll('#leaderboard tbody tr');
+
+    // Clear existing scores from the scores array
+    leaderboardScores = [];
+
+    // Iterate over the table rows and extract data
+    leaderboardRows.forEach(row => {
+        let name = row.cells[1].innerText;
+        let score = parseInt(row.cells[2].innerText); // Assuming the score is a number
+        leaderboardScores.push({ name: name, score: score });
+    });
+
+    // Add the new player score object to the leaderboardScores array
+    leaderboardScores.push(playerScore);
+
+    // Update the leaderboard view
+    updateLeaderboardView();
+}
+
+
+/* Update the leaderboard */
+function updateLeaderboardView() {
+    //Get and clear leaderboard
+    let leaderboard = document.getElementById("leaderboard").getElementsByTagName("tbody")[0];
+    leaderboard.innerHTML = "";
+
+    //Sort scores
+    leaderboard.sort(function(a, b) {
+        return b.score - a.score;
+    });
+
+    //Assign medal colours to van array
+    let colors = ["gold", "silver", "#cd7f32"];
+
+    for (let i = 0; i < leaderboard.length; i++) {
+        let rank = document.createElement("td");
+        let name = document.createElement("td");
+        let score = document.createElement("td");
+        
+        rank.innerText = i + 1; // rank starts from 1
+        name.innerText = leaderboardScores[i].name;
+        score.innerText = leaderboardScores[i].score;
+
+        let scoreRow = document.createElement("tr");
+        //Top 3 scores get medal colour applied to row background
+        if (i < 3) { // apply color for top 3 ranks
+            scoreRow.style.backgroundColor = colors[i];
+        }
+
+        //Append entries back to table
+        scoreRow.appendChild(rank);
+        scoreRow.appendChild(name);
+        scoreRow.appendChild(score);
+        leaderboard.appendChild(scoreRow);
     }
 }
 
