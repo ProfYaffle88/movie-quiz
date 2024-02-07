@@ -182,7 +182,7 @@ function captureScore() {
     };
 
     // Switch to scoreboard page
-    window.location.href = 'scoreboard.html';
+    window.location.href = 'leaderboard.html';
 
     document.addEventListener('DOMContentLoaded', function() {
         // Get the table rows from the leaderboard
