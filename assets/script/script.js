@@ -1,8 +1,8 @@
 /* Declare constants */
 const startButton = document.getElementById('start-btn');
-const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
+const questionCounter = document.getElementById('question-counter');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const timerElement = document.getElementById('timer');
 const currentScoreContainer = document.getElementById('current-score-container');
@@ -14,26 +14,12 @@ let timer, timeLeft, score, currentQuestionIndex, questionsList, answered;
 
 /* Event Listeners */
 startButton.addEventListener('click', startGame);
-nextButton.addEventListener('click', () => {
-    setNextQuestion();
-});
 
-/* Start Game function */
-function startGame() {
-    startButton.classList.add('hide');
-    questionContainerElement.classList.remove('hide');
-    currentScoreContainer.classList.remove('hide');
-    timerElement.classList.remove();
-    finalScoreContainer.classList.add('hide');
-    
-    getQuestions();
-
-    currentQuestionIndex = 0;
-    score = 0;
-    timeLeft = 60; // Set the initial time (in seconds)
-    updateCounter();
-    updateTimer();
-    timer = setInterval(updateTimer, 1000); // Update timer every second
+/* Updates the question counter */
+function updateCounter() {
+    if (!questionsList) return; // Check if questionsList is defined
+    const counterElement = document.getElementById('question-counter');
+    counterElement.innerText = `Question ${currentQuestionIndex + 1} of ${questionsList.length}`;
 }
 
 /* Retrieve set of 12 Film/TV questions from API */
@@ -48,12 +34,9 @@ function getQuestions() {
     });
 }
 
-function updateCounter() {
-    const counterElement = document.getElementById('question-counter');
-    counterElement.innerText = `Question ${currentQuestionIndex + 1} of ${questionsList.length}`;
-}
-
+/* Question timer function */
 function updateTimer() {
+    if (!questionsList) return; // Check if questionsList is defined
     timerElement.innerText = `Time Left: ${timeLeft} seconds`;
     if (timeLeft <= 0 || currentQuestionIndex >= questionsList.length) {
         clearInterval(timer); // Stop the timer when it reaches 0 or the quiz is finished
@@ -63,15 +46,19 @@ function updateTimer() {
     }
 }
 
+/* Function to move to next question */
 function setNextQuestion() {
     resetState();
     if (currentQuestionIndex < questionsList.length) {
+        updateCounter(); // Update question counter
         showQuestion(questionsList[currentQuestionIndex]);
+        timeLeft = 60;
     } else {
         showFinalScore(); // Call showFinalScore() if all questions have been answered
     }
 }
 
+/* Function to show question */
 function showQuestion(questionData) {
     questionElement.innerText = questionData.question.text;
     
@@ -93,15 +80,16 @@ function showQuestion(questionData) {
     });
 }
 
+/* Remove answers and reset between questions */
 function resetState() {
     clearStatusClass(document.body);
-    nextButton.classList.add('hide');
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild);
     }
     answered = false;
 }
 
+/* Answer choice function */
 function selectAnswer(e) {
     if (answered) return; // Prevent multiple clicks
     answered = true;
@@ -110,13 +98,14 @@ function selectAnswer(e) {
     const correct = selectedButton.dataset.correct === 'true';
     setStatusClass(document.body, correct);
     if (correct) {
-        score++;
+        score++; // Incremement score
         updateScore(); // Update current score
     }
     Array.from(answerButtonsElement.children).forEach(button => {
         button.disabled = true; // Disable all buttons
     });
 
+    // Display right/wrong feedback for 4 seconds before moving to next question
     setTimeout(() => {
         currentQuestionIndex++;
         setNextQuestion();
@@ -124,6 +113,7 @@ function selectAnswer(e) {
     }, 4000); // Auto-advance after 4 seconds
 }
 
+/* Set correct/wrong status to display feedback to user */
 function setStatusClass(element, correctAnswer) {
     clearStatusClass(element);
     if (correctAnswer) {
@@ -133,11 +123,13 @@ function setStatusClass(element, correctAnswer) {
     }
 }
 
+/* remove correct/wrong status */
 function clearStatusClass(element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
 }
 
+/* Update current score during game */
 function updateScore() {
     currentScoreElement.innerText = score; // Update current score
 }
@@ -146,15 +138,38 @@ function updateScore() {
 function showFinalScore() {
     clearFinalQuestion(); // Call the function to clear the final question
     finalScoreElement.innerText = score; // Assign final score
+    questionCounter.classList.add('hide'); // Hide question counter
+    timerElement.classList.add('hide'); // Hide timer container
     currentScoreContainer.classList.add('hide'); // Hide current score container
     finalScoreContainer.classList.remove('hide'); // Show final score container
     tryAgainButton.classList.remove('hide'); // Show try again button
 }
 
-/* Remove last question from element */
+/* Remove last question from element at end of game */
 function clearFinalQuestion() {
     questionElement.innerText = ''; // Clear question
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild); // Remove answer buttons
     }
+}
+
+/* Start Game function */
+function startGame() {
+    // reveal/hide page elements
+    startButton.classList.add('hide');
+    questionContainerElement.classList.remove('hide');
+    currentScoreContainer.classList.remove('hide');
+    finalScoreContainer.classList.add('hide');
+    questionCounter.classList.remove('hide');
+    timerElement.classList.remove('hide');
+
+    // fetch questions for game
+    getQuestions();
+
+    // Set index to zero, set score to zero, set timer
+    currentQuestionIndex = 0;
+    score = 0;
+    timeLeft = 60; // Set the initial time (in seconds)
+    updateTimer();
+    timer = setInterval(updateTimer, 1000); // Update timer every second
 }
