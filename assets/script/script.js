@@ -210,42 +210,34 @@ function captureScore() {
 
 /* Update the leaderboard */
 function updateLeaderboardView() {
-    // Wait for the DOMContentLoaded event before accessing the DOM elements
-    document.addEventListener('DOMContentLoaded', function() {
-        //Get and clear leaderboard
-        let leaderboard = document.getElementById("leaderboard").getElementsByTagName("tbody")[0];
-        leaderboard.innerHTML = "";
+    // Get the leaderboard table
+    let leaderboardTable = document.getElementById("leaderboard");
 
-        //Sort scores
-        leaderboard.sort(function(a, b) {
-            return b.score - a.score;
-        });
+    // Clear the tbody
+    let tbody = leaderboardTable.querySelector("tbody");
+    tbody.innerHTML = "";
 
-        //Assign medal colours to van array
-        let colors = ["gold", "silver", "#cd7f32"];
+    // Sort scores
+    leaderboardScores.sort((a, b) => b.score - a.score);
 
-        for (let i = 0; i < leaderboard.length; i++) {
-            let rank = document.createElement("td");
-            let name = document.createElement("td");
-            let score = document.createElement("td");
-            
-            rank.innerText = i + 1; // rank starts from 1
-            name.innerText = leaderboardScores[i].name;
-            score.innerText = leaderboardScores[i].score;
+    //Assign medal colours to an array
+    let colors = ["gold", "silver", "#cd7f32"];
 
-            let scoreRow = document.createElement("tr");
-            //Top 3 scores get medal colour applied to row background
-            if (i < 3) { // apply color for top 3 ranks
-                scoreRow.style.backgroundColor = colors[i];
-            }
+    for (let i = 0; i < leaderboard.length; i++) {
+        let rank = document.createElement("td");
+        let name = document.createElement("td");
+        let score = document.createElement("td");
+        
+        rank.innerText = i + 1; // rank starts from 1
+        name.innerText = leaderboardScores[i].name;
+        score.innerText = leaderboardScores[i].score;
 
-            //Append entries back to table
-            scoreRow.appendChild(rank);
-            scoreRow.appendChild(name);
-            scoreRow.appendChild(score);
-            leaderboard.appendChild(scoreRow);
+        let scoreRow = document.createElement("tr");
+        //Top 3 scores get medal colour applied to row background
+        if (i < 3) { // apply color for top 3 ranks
+            scoreRow.style.backgroundColor = colors[i];
         }
-    });
+    }
 }
 
 /* Start Game function */
