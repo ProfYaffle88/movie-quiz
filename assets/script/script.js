@@ -181,21 +181,27 @@ function captureScore() {
         score: finalScore
     };
 
-    // Get the table rows from the leaderboard
-    let leaderboardRows = document.querySelectorAll('#leaderboard tbody tr');
+    // Switch to scoreboard page
+    window.location.href = 'scoreboard.html';
 
-    // Clear existing scores from the scores array
-    leaderboardScores = [];
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the table rows from the leaderboard
+        let leaderboardRows = document.querySelectorAll('#leaderboard tbody tr');
 
-    // Iterate over the table rows and extract data
-    leaderboardRows.forEach(row => {
-        let name = row.cells[1].innerText;
-        let score = parseInt(row.cells[2].innerText); // Assuming the score is a number
-        leaderboardScores.push({ name: name, score: score });
+        // Clear existing scores from the scores array
+        leaderboardScores = [];
+
+        // Iterate over the table rows and extract data
+        leaderboardRows.forEach(row => {
+            let name = row.cells[1].innerText;
+            let score = parseInt(row.cells[2].innerText); // Assuming the score is a number
+            leaderboardScores.push({ name: name, score: score });
+        });
+
+        // Add the new player score object to the leaderboardScores array
+        leaderboardScores.push(playerScore);
     });
-
-    // Add the new player score object to the leaderboardScores array
-    leaderboardScores.push(playerScore);
+        
 
     // Update the leaderboard view
     updateLeaderboardView();
@@ -204,39 +210,42 @@ function captureScore() {
 
 /* Update the leaderboard */
 function updateLeaderboardView() {
-    //Get and clear leaderboard
-    let leaderboard = document.getElementById("leaderboard").getElementsByTagName("tbody")[0];
-    leaderboard.innerHTML = "";
+    // Wait for the DOMContentLoaded event before accessing the DOM elements
+    document.addEventListener('DOMContentLoaded', function() {
+        //Get and clear leaderboard
+        let leaderboard = document.getElementById("leaderboard").getElementsByTagName("tbody")[0];
+        leaderboard.innerHTML = "";
 
-    //Sort scores
-    leaderboard.sort(function(a, b) {
-        return b.score - a.score;
-    });
+        //Sort scores
+        leaderboard.sort(function(a, b) {
+            return b.score - a.score;
+        });
 
-    //Assign medal colours to van array
-    let colors = ["gold", "silver", "#cd7f32"];
+        //Assign medal colours to van array
+        let colors = ["gold", "silver", "#cd7f32"];
 
-    for (let i = 0; i < leaderboard.length; i++) {
-        let rank = document.createElement("td");
-        let name = document.createElement("td");
-        let score = document.createElement("td");
-        
-        rank.innerText = i + 1; // rank starts from 1
-        name.innerText = leaderboardScores[i].name;
-        score.innerText = leaderboardScores[i].score;
+        for (let i = 0; i < leaderboard.length; i++) {
+            let rank = document.createElement("td");
+            let name = document.createElement("td");
+            let score = document.createElement("td");
+            
+            rank.innerText = i + 1; // rank starts from 1
+            name.innerText = leaderboardScores[i].name;
+            score.innerText = leaderboardScores[i].score;
 
-        let scoreRow = document.createElement("tr");
-        //Top 3 scores get medal colour applied to row background
-        if (i < 3) { // apply color for top 3 ranks
-            scoreRow.style.backgroundColor = colors[i];
+            let scoreRow = document.createElement("tr");
+            //Top 3 scores get medal colour applied to row background
+            if (i < 3) { // apply color for top 3 ranks
+                scoreRow.style.backgroundColor = colors[i];
+            }
+
+            //Append entries back to table
+            scoreRow.appendChild(rank);
+            scoreRow.appendChild(name);
+            scoreRow.appendChild(score);
+            leaderboard.appendChild(scoreRow);
         }
-
-        //Append entries back to table
-        scoreRow.appendChild(rank);
-        scoreRow.appendChild(name);
-        scoreRow.appendChild(score);
-        leaderboard.appendChild(scoreRow);
-    }
+    });
 }
 
 /* Start Game function */
