@@ -169,8 +169,8 @@ function clearFinalQuestion() {
 /* Function to capture player name and final score */
 function captureScore() {
     // Get player name from form input
-    let playerNameInput = document.getElementById('player-name'); // Assuming input field has id 'player-name'
-    let playerName = playerNameInput.value;
+    let playerNameInput = document.getElementById('player-name-submit'); // Assuming input field has id 'player-name'
+    let playerName = playerNameInput.innerText;
 
     // Get final score from finalScoreContainer
     let finalScore = finalScoreContainer.value;
