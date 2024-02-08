@@ -172,7 +172,6 @@ function selectAnswer(e) {
         setNextQuestion();
         answered = false;
     }, 4000); // Auto-advance after 4 seconds
-    // hide timer when answer selected
 }
 
 /* Set correct/wrong status to display feedback to user */
