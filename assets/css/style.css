@@ -17,7 +17,7 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: hsl(var(--hue), 100%, 10%);
+  background-color: hsl(var(--hue), 100%, 15%);
 }
 .container {
   width: 800px;
@@ -84,7 +84,7 @@ margin: 20px 0;
 .btn {
 --hue: var(--hue-neutral);
 border: 3px solid hsl(var(--hue), 100%, 30%);
-background-color: hsl(var(--hue), 100%, 50%);
+background-color: hsl(var(--hue), 100%, 20%);
 border-radius: 5px;
 padding: 5px 10px;
 color: white;
