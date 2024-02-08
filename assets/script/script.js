@@ -101,6 +101,7 @@ function setNextQuestion() {
         updateCounter(); // Update question counter
         showQuestion(questionsList[currentQuestionIndex]);
         timeLeft = 60;
+        timerElement.classList.remove('hide'); //Reset to 60 and unhide timer
     } else {
         showFinalScore(); // Call showFinalScore() if all questions have been answered
     }
@@ -139,7 +140,7 @@ function resetState() {
 
 /* Answer choice function */
 function selectAnswer(e) {
-    timerElement.classList.add('hide'); // Hide timer container
+    timerElement.classList.add('hide'); // // hide timer when answer selected
     if (answered) return; // Prevent multiple clicks
     answered = true;
 
@@ -160,7 +161,7 @@ function selectAnswer(e) {
         setNextQuestion();
         answered = false;
     }, 4000); // Auto-advance after 4 seconds
-    timerElement.classList.remove('hide'); // Show timer container after correct/incorrect feedback finished
+    // hide timer when answer selected
 }
 
 /* Set correct/wrong status to display feedback to user */
