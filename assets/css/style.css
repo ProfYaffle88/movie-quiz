@@ -36,6 +36,15 @@ body {
   justify-content: center;
   align-items: center;
 }
+#question-container {
+  font-size: 1.2em;
+}
+#counter-timer p:first-child {
+  font-size: 0.5em;
+}
+#counter-timer p:last-child {
+  font-size: 0.7em;
+}
 
 /*Logo*/
 .logo {
@@ -64,12 +73,10 @@ z-index: 1;
 /*Timer Styles*/
 #question-counter,
 #timer {
-font-size: 1.2rem;
 color: black;
 margin: 5px 0;
 }
 #timer {
-font-size: 1.2rem;
 color: black;
 margin: 10px 0; /* Add margin on top and bottom */
 /* display: none; */ /* Comment out or remove this line */
