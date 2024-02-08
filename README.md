@@ -275,11 +275,8 @@ The W3C Markup Validator and W3C CSS Validator Services were used to check my co
 
 ## Content
 
-- Contains Parliamentary information licensed under the Open Parliament Licence v3.0. Provided through the [UK Parliament Members API](https://members-api.parliament.uk/index.html)
-- The paper-texture background image is by [bedneyimages on Freepik](https://www.freepik.com/free-photo/white-texture_946233.htm#query=paper%20background&position=0&from_view=search&track=ais&uuid=e0d76099-8e15-4dfe-8c4e-20760eaf5938)
-- All code was written by [ProfYaffle88](https://github.com/users/ProfYaffle88)
+- All code was written by The Boolean Hooligans; [Nyx](https://github.com/Bethan-McKenzie), [tyrelm1](https://github.com/tyrelm1), [ProfYaffle88](https://github.com/users/ProfYaffle88), and fearlessly led into the breach by [SNLanger](https://github.com/SNLanger).
 - The format of this ReadMe.md was adapted from a docoument by [Iris Smok](https://github.com/Iris-Smok)
-- The header, footer and navbar were adapted from 
 - Stack Overflow provided several solutions to multiple issues including alignment, positioning, and responsiveness. [Stack Overflow](https://stackoverflow.com/questions)
 
 ## Media
