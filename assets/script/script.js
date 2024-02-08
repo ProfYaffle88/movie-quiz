@@ -61,6 +61,7 @@ function revealLeaderboard() {
     seeLeaderboard.classList.add('hide');
     leaderboardContainer.classList.remove('hide');
     tryAgainButton.classList.remove('hide');
+    leaderboardButton.classList.add('hide'); // Hide submite score field
 }
 
 /* Updates the question counter */
