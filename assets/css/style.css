@@ -138,6 +138,24 @@ margin-bottom: 15px;
   margin-bottom: 5px;
 }
 /*footer and social media icons*/
+/* Hide title text by default */
+[title]::after {
+  content: attr(title);
+  display: none;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  margin-top: 10px;
+}
+
+/* Show title text on hover */
+[title]:hover::after {
+  display: block;
+}
+
 footer {
   position: fixed;
   bottom: 0;
