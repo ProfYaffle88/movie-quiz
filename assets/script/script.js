@@ -11,6 +11,8 @@ const currentScoreElement = document.getElementById('current-score');
 const finalScoreElement = document.getElementById('final-score');
 const tryAgainButton = document.getElementById('try-again-btn');
 const leaderboardButton = document.getElementById('leaderboard-form');
+const seeLeaderboard = document.getElementById('leaderboard-btn');
+const leaderboardContainer = document.getElementById('leaderboard');
 
 let playerNameInput = document.getElementById('player-name-submit');
 let playerName = '';
@@ -25,22 +27,7 @@ function eventListeners() {
         startButton.addEventListener('click', startGame);
     }
 
-    // Capture data and submit to leaderboard when button clicked
-    if (leaderboardButton) {
-        document.getElementById('leaderboard-form').addEventListener('submit', function eventHandler(event) {
-            // Prevent default form submission behavior
-            event.preventDefault();
-            
-            // Call the captureScore function
-            captureScore();
-
-            // Remove the event listener
-            this.removeEventListener('click', eventHandler);
-
-        });
-    }
-
-    // Event Listener for score submit
+        // Event Listener for score submit
     if (leaderboardButton) {
         document.getElementById('leaderboard-form').addEventListener('submit', function(event) {
             // Prevent default form submission behavior
@@ -50,8 +37,31 @@ function eventListeners() {
             captureScore();
         });
     }
+    if (seeLeaderboard) {
+        document.getElementById('leaderboard-btn').addEventListener('submit', function(event) {
+        // Prevent default form submission behavior
+        event.preventDefault();
+        
+        // Call the captureScore function
+        revealLeaderboard();
+        });
+    }
 }
 eventListeners();
+
+/* Leaderboard reveal */
+function revealLeaderboard() {
+    // Hide everything and reveal leaderboard table container and try again button
+    startButton.classList.add('hide');
+    questionContainerElement.classList.add('hide');
+    currentScoreContainer.classList.add('hide');
+    finalScoreContainer.classList.add('hide');
+    questionCounter.classList.add('hide');
+    timerElement.classList.add('hide');
+    seeLeaderboard.classList.add('hide');
+    leaderboardContainer.classList.remove('hide');
+    tryAgainButton.classList.remove('hide');
+}
 
 /* Updates the question counter */
 function updateCounter() {
@@ -129,6 +139,7 @@ function resetState() {
 
 /* Answer choice function */
 function selectAnswer(e) {
+    timerElement.classList.add('hide'); // Hide timer container
     if (answered) return; // Prevent multiple clicks
     answered = true;
 
@@ -149,6 +160,7 @@ function selectAnswer(e) {
         setNextQuestion();
         answered = false;
     }, 4000); // Auto-advance after 4 seconds
+    timerElement.classList.remove('hide'); // Show timer container after correct/incorrect feedback finished
 }
 
 /* Set correct/wrong status to display feedback to user */
@@ -182,9 +194,11 @@ function showFinalScore() {
     finalScoreContainer.classList.remove('hide'); // Show final score container
     tryAgainButton.classList.remove('hide'); // Show try again button
     leaderboardButton.classList.remove('hide'); // Show sumbit score button
+    seeLeaderboard.classList.remove('hide'); // Show "See Leaderboard" button to view without submitting score
+    
 
     // Add event listener to playerNameInput
-playerNameInput.addEventListener('input', function(event) {
+    playerNameInput.addEventListener('input', function(event) {
     // Log the event and its properties to check for any issues
     console.log('Event:', event);
     console.log('Input value:', event.target.value);
@@ -223,9 +237,6 @@ function captureScore() {
         score: finalScore
     };
 
-    // Switch to scoreboard page
-    window.location.href = 'leaderboard.html';
-
     // Get the table rows from the leaderboard
     let leaderboardRows = document.querySelectorAll('#leaderboard tbody tr');
 
@@ -235,7 +246,7 @@ function captureScore() {
     // Iterate over the table rows and extract data
     leaderboardRows.forEach(row => {
         let name = row.cells[1].innerText;
-        let score = parseInt(row.cells[2].innerText); // Assuming the score is a number
+        let score = parseInt(row.cells[2].innerText); // Score is a number
         leaderboardScores.push({ name: name, score: score });
     });
 
@@ -244,6 +255,7 @@ function captureScore() {
 
     // Update the leaderboard view
     updateLeaderboardView();
+    revealLeaderboard();
 }
 
 
@@ -291,6 +303,7 @@ function startGame() {
     finalScoreContainer.classList.add('hide');
     questionCounter.classList.remove('hide');
     timerElement.classList.remove('hide');
+    seeLeaderboard.classList.remove('hide');
 
     // fetch questions for game
     getQuestions();
