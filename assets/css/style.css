@@ -178,67 +178,126 @@ footer {
 .hide {
   display: none !important; /* Prevent specificity issues! */
 }
-
-
-/* Media Queries*/
-
-/* Extra small devices (phones, 600px and down) */
-/*  @media only screen and (max-width: 600px) { /-----------------------------------* bethans media query
-   #answer-buttons {
-    flex-flow:column wrap;
-  } */
-  
-  /* Small devices (phones) ------------------------------------------------------ tyrels go !*/
-@media only screen and (max-width: 374px) {
-  
+/* Mobile devices - Portrait (Vertical) */
+@media only screen and (max-width: 667px) and (orientation: portrait) {
   body {
-    font-size: 16px; /* Adjust font size for better readability on small screens */
-    min-height: auto;
+    font-size: 14px;
   }
 
   .container {
-    width: 100%; /* Make the container full-width on small screens */
-    max-width: none; /* Remove max-width to allow content to shrink */
-    border-radius: 0; /* Remove border-radius on small screens */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    padding: 5px; /* Add some padding for better spacing on small screens */
+    max-width: 100vw;
+    margin: 0 auto;
+    padding: 6em;
+    max-height: min-content;
+    position: absolute;
+  }
+
+  .logo img {
+    height: 100px;
+    width: 100px;
+    left: 14em;
   }
 
   .btn-grid {
-    grid-template-columns: repeat(1, auto); /* Change to a single column layout for answer buttons */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
   }
 
   .btn {
-    width: 100%; /* Make answer buttons full-width */
-    margin-bottom: 10px; /* Add some spacing between answer buttons */
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .social-icons {
+    left: 100px;
+    bottom: 0;
+    display: flex;
+    font-size: 25px;
+    color: white;
+    position: absolute;
+    right: 14em;
   }
 
   footer {
-    padding: 5px; /* Adjust padding for better spacing on small screens */
+    position: fixed;
+    bottom: 0px;
+    right:75;
+    width: 86%;
+    background-color: #333;
+    padding: 60px;
+    text-align: center;
+  }
+}
+
+/* Mobile devices - Landscape (Horizontal) */
+@media only screen and (max-width: 600px) and (orientation: landscape) {
+  body {
+    --hue: var(--hue-neutral);
+    padding: 0;
+    margin: 0;
     display: flex;
-    width: 56%;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(var(--hue), 100%, 20%);
+  }
+
+  .container {
+    width: 90%; /* Adjust the width percentage as needed */
+    max-width: 800px; /* Adjust the maximum width as needed */
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: auto;
+    z-index: 50;
+    position: relative;
+    margin: 10vh auto; /* Adjust the top margin as needed */
+    transform: translateY(-50%);
+    position :absolute;
   }
 
-  #social-icons {
+  }
+
+  .logo img {
+    height: 100px;
+    width: 100px;
+    left: 14em;
+  }
+
+  .btn-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns as needed */
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .social-icons {
+    left: 100px;
+    bottom: 5px;
     display: flex;
-    justify-content: center; /* Center social icons horizontally */
-    align-items: center; /* Center social icons vertically */
-    flex-wrap: wrap; /* Allow social icons to wrap to the next line if needed */
+    font-size: 25px;
+    color: white;
+    position: absolute;
+    right:10em;
   }
 
-  #social-icons a {
-    margin: 5px; /* Add some spacing between social icons */
-  }
+  footer {
+    position: fixed;
+    bottom: 0%px;
+    right: 75px;
+    width: 100%;
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
 }
-/*Responsive layout - makes a one column layout instead of a two-column layout*/
 
-
-@media (max-width: 800px) {
- .flex-item-right, .flex-item-left {
-   flex: 100%;
-  }
-}
