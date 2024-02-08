@@ -166,5 +166,5 @@ footer {
 /* Incognito mode */
 
 .hide {
-  display: none;
+  display: none !important;
 }

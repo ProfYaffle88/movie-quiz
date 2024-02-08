@@ -5,6 +5,7 @@ const questionElement = document.getElementById('question');
 const questionCounter = document.getElementById('question-counter');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const timerElement = document.getElementById('timer');
+const scoreContainer = document.getElementById('score-container');
 const currentScoreContainer = document.getElementById('current-score-container');
 const finalScoreContainer = document.getElementById('final-score-container');
 const currentScoreElement = document.getElementById('current-score');
@@ -313,6 +314,7 @@ function updateLeaderboardView() {
 /* Start Game function */
 function startGame() {
     // reveal/hide page elements
+    scoreContainer.classList.remove('hide');
     startButton.classList.add('hide');
     questionContainerElement.classList.remove('hide');
     currentScoreContainer.classList.remove('hide');
