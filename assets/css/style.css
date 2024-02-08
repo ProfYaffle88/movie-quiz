@@ -1,14 +1,13 @@
+
 /*General Styles*/
 *, *::before, *::after {
   box-sizing: border-box;
 }
-
 :root {
   --hue-neutral: 200;
   --hue-wrong:  0;
   --hue-correct: 120;
 }
-
 body {
   --hue: var(--hue-neutral);
   padding: 0;
@@ -20,7 +19,6 @@ body {
   align-items: center;
   background-color: hsl(var(--hue), 100%, 20%);
 }
-
 .container {
   width: 800px;
   max-width: 80%;
@@ -31,32 +29,23 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 50;
 }
-
 .controls {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.hide {
-  display: none;
-}
-/*Homepage Styles*/
-
 /*Logo*/
-
 .logo {
   position: fixed;
-  top: 25px;
+  top: 15px;
 }
-
 .logo img {
   height: 150px;
   width: 150px;
   border-radius: 25%;
 }
-
 
 /*Colour Change for Correct/incorrect answers*/
 body.correct {
@@ -115,11 +104,32 @@ font-size: 1.5rem;
 font-weight: bold;
 padding: 10px 20px;
 }
+.leaderboard-btn {
+  margin-top: 10px;
+}
+#score-container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /*Final Score Styles*/
 #try-again {
 margin-top: 1rem;
+margin-bottom: 15px;
 }
 
+/*leaderboard area styling*/
+#leaderboard-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#leaderboard-btn {
+  margin-bottom: 5px;
+}
 /*footer and social media icons*/
 footer {
   position: fixed;
@@ -130,15 +140,12 @@ footer {
   padding: 10px;
   text-align: center;
 }
-
 .social-icons {
   font-size: 5rem;
   color: white;
   position:relative;
-
  
 }
-
 .social-icons a {
   margin: 0 10px;
   color:white;
@@ -146,16 +153,19 @@ footer {
   position: relative;
   z-index: 2;
 }
-
 .social-icons i {
   transition: color 0.3s ease-in-out;
 }
-
 .social-icons a:hover i {
   color: #EF233C ; /* Adjust the hover color as needed */
 }
-
 /*overiding generalised style for social links*/
 #social {
   font-family: sans-serif;
+}
+
+/* Incognito mode */
+
+.hide {
+  display: none;
 }
