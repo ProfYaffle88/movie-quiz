@@ -38,11 +38,11 @@ function eventListeners() {
         });
     }
     if (seeLeaderboard) {
-        document.getElementById('leaderboard-btn').addEventListener('submit', function(event) {
+        document.getElementById('leaderboard-btn').addEventListener('click', function(event) {
         // Prevent default form submission behavior
         event.preventDefault();
         
-        // Call the captureScore function
+        // Call the Reveal Leaderboard function
         revealLeaderboard();
         });
     }
@@ -225,7 +225,7 @@ function captureScore() {
     startButton.removeEventListener('click', startGame); 
     
     // Get player name from form input
-    playerNameInput = document.getElementById('player-name');
+    playerNameInput = document.getElementById('player-name-submit');
     playerName = playerNameInput.value;
 
     // Get final score from finalScoreElement
@@ -303,7 +303,7 @@ function startGame() {
     finalScoreContainer.classList.add('hide');
     questionCounter.classList.remove('hide');
     timerElement.classList.remove('hide');
-    seeLeaderboard.classList.remove('hide');
+    seeLeaderboard.classList.add('hide');
 
     // fetch questions for game
     getQuestions();
