@@ -216,7 +216,7 @@ footer {
   footer {
     position: fixed;
     bottom: 0px;
-    left: 0;
+    right:75;
     width: 86%;
     background-color: #333;
     padding: 60px;
