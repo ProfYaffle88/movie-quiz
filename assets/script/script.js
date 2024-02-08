@@ -5,6 +5,7 @@ const questionElement = document.getElementById('question');
 const questionCounter = document.getElementById('question-counter');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const timerElement = document.getElementById('timer');
+const scoreContainer = document.getElementById('score-container');
 const currentScoreContainer = document.getElementById('current-score-container');
 const finalScoreContainer = document.getElementById('final-score-container');
 const currentScoreElement = document.getElementById('current-score');
@@ -61,6 +62,17 @@ function revealLeaderboard() {
     seeLeaderboard.classList.add('hide');
     leaderboardContainer.classList.remove('hide');
     tryAgainButton.classList.remove('hide');
+    leaderboardButton.classList.add('hide'); // Hide submite score field
+
+    // Apply medal colors to existing leaderboard rows
+    let leaderboardRows = document.querySelectorAll('#leaderboard tbody tr');
+    let colors = ["gold", "silver", "#cd7f32"];
+
+    leaderboardRows.forEach((row, index) => {
+        if (index < 3) {
+            row.style.backgroundColor = colors[index];
+        }
+    });
 }
 
 /* Updates the question counter */
@@ -101,6 +113,7 @@ function setNextQuestion() {
         updateCounter(); // Update question counter
         showQuestion(questionsList[currentQuestionIndex]);
         timeLeft = 60;
+        timerElement.classList.remove('hide'); //Reset to 60 and unhide timer
     } else {
         showFinalScore(); // Call showFinalScore() if all questions have been answered
     }
@@ -139,13 +152,16 @@ function resetState() {
 
 /* Answer choice function */
 function selectAnswer(e) {
-    timerElement.classList.add('hide'); // Hide timer container
+    timerElement.classList.add('hide'); // // hide timer when answer selected
     if (answered) return; // Prevent multiple clicks
     answered = true;
 
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct === 'true';
+    // Set status class based on correctness - HTML body
     setStatusClass(document.body, correct);
+    // Set status class based on correctness - Selected Button
+    setStatusClass(selectedButton, correct);
     if (correct) {
         score++; // Incremement score
         updateScore(); // Update current score
@@ -160,16 +176,15 @@ function selectAnswer(e) {
         setNextQuestion();
         answered = false;
     }, 4000); // Auto-advance after 4 seconds
-    timerElement.classList.remove('hide'); // Show timer container after correct/incorrect feedback finished
 }
 
 /* Set correct/wrong status to display feedback to user */
 function setStatusClass(element, correctAnswer) {
     clearStatusClass(element);
     if (correctAnswer) {
-        element.classList.add('correct');
+        element.classList.add('correct', 'btn.correct');
     } else {
-        element.classList.add('wrong');
+        element.classList.add('wrong', 'btn.wrong');
     }
 }
 
@@ -177,6 +192,8 @@ function setStatusClass(element, correctAnswer) {
 function clearStatusClass(element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
+    element.classList.remove('btn.correct');
+    element.classList.remove('btn.wrong');
 }
 
 /* Update current score during game */
@@ -297,6 +314,7 @@ function updateLeaderboardView() {
 /* Start Game function */
 function startGame() {
     // reveal/hide page elements
+    scoreContainer.classList.remove('hide');
     startButton.classList.add('hide');
     questionContainerElement.classList.remove('hide');
     currentScoreContainer.classList.remove('hide');
