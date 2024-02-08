@@ -13,13 +13,25 @@ const finalScoreElement = document.getElementById('final-score');
 const tryAgainButton = document.getElementById('try-again-btn');
 const leaderboardButton = document.getElementById('leaderboard-form');
 const seeLeaderboard = document.getElementById('leaderboard-btn');
-const leaderboardContainer = document.getElementById('leaderboard');
-
+const leaderboardEasy = document.getElementById('leaderboard-easy');
+const leaderboardMedium = document.getElementById('leaderboard-medium');
+const leaderboardHard = document.getElementById('leaderboard-hard');
+const leaderboardRandom = document.getElementById('leaderboard-random');
+const difficultyContainer = document.getElementById('difficulty-selector-container');
+const difficultyChosen = document.getElementById('difficulty-selector');
+const difficultyLabel = document.getElementById('diff-select-label');
 let playerNameInput = document.getElementById('player-name-submit');
 let playerName = '';
 
-let timer, timeLeft, score, currentQuestionIndex, questionsList, answered;
+let timer, timeLeft, score, currentQuestionIndex, questionsList, answered, leaderboardRows, selectedDifficulty;
 let leaderboardScores = []; //Set leaderboard scores as an empty array - pull existing leaderboard?
+
+/* Global event listners */
+// Event listener for difficulty selector dropdown change
+document.getElementById('difficulty-selector').addEventListener('change', function(event) {
+    selectedDifficulty = event.target.value;
+    console.log(selectedDifficulty);
+});
 
 /* Event Listeners - "if target element exists"*/
 function eventListeners() {
@@ -60,12 +72,27 @@ function revealLeaderboard() {
     questionCounter.classList.add('hide');
     timerElement.classList.add('hide');
     seeLeaderboard.classList.add('hide');
-    leaderboardContainer.classList.remove('hide');
+    difficultyLabel.classList.add('hide');
+    difficultyContainer.classList.add('hide');
+
+    switch (difficultyChosen) {
+        case 'easy':
+            leaderboardEasy.classList.remove('hide');
+            break;
+        case 'medium':
+            leaderboardMedium.classList.remove('hide');
+            break;
+        case 'hard':
+            leaderboardHard.classList.remove('hide');
+            break;
+        default:
+            leaderboardRandom.classList.remove('hide');
+    }
     tryAgainButton.classList.remove('hide');
     leaderboardButton.classList.add('hide'); // Hide submite score field
 
     // Apply medal colors to existing leaderboard rows
-    let leaderboardRows = document.querySelectorAll('#leaderboard tbody tr');
+    let leaderboardRows = document.querySelectorAll(`#leaderboard-${selectedDifficulty} tbody tr`);
     let colors = ["gold", "silver", "#cd7f32"];
 
     leaderboardRows.forEach((row, index) => {
@@ -85,6 +112,24 @@ function updateCounter() {
 /* Retrieve set of 12 Film/TV questions from API */
 function getQuestions() {
     let apiUrl = 'https://the-trivia-api.com/v2/questions?limit=12&categories=film_and_tv&region=GB';
+    
+    // Difficulty selector switch case (default is random mix)
+    switch (difficultyChosen) {
+        case 'easy':
+            apiUrl = 'https://the-trivia-api.com/v2/questions?limit=12&categories=film_and_tv&difficulties=easy&region=GB';
+            break;
+        case 'medium':
+            apiUrl = 'https://the-trivia-api.com/v2/questions?limit=12&categories=film_and_tv&difficulties=medium&region=GB';
+            break;
+        case 'hard':
+            apiUrl = 'https://the-trivia-api.com/v2/questions?limit=12&categories=film_and_tv&difficulties=hard&region=GB';
+            break;
+        default:
+            apiUrl = 'https://the-trivia-api.com/v2/questions?limit=12&categories=film_and_tv&region=GB'; // Random selection of all difficulties - roll those dice!!!
+    } 
+    
+    
+    
     fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
@@ -254,8 +299,20 @@ function captureScore() {
         score: finalScore
     };
 
-    // Get the table rows from the leaderboard
-    let leaderboardRows = document.querySelectorAll('#leaderboard tbody tr');
+    // Get the table rows from the leaderboard - switch case for difficulty
+        switch (difficultyChosen) {
+            case 'easy':
+                leaderboardRows = document.querySelectorAll('#leaderboard-easy tbody tr');
+                break;
+            case 'medium':
+                leaderboardRows = document.querySelectorAll('#leaderboard-medium tbody tr');
+                break;
+            case 'hard':
+                leaderboardRows = document.querySelectorAll('#leaderboard-hard tbody tr');
+                break;
+            default:
+                leaderboardRows = document.querySelectorAll('#leaderboard tbody tr');
+        }
 
     // Clear existing scores from the scores array
     leaderboardScores = [];
@@ -279,7 +336,7 @@ function captureScore() {
 /* Update the leaderboard */
 function updateLeaderboardView() {
     // Get the leaderboard table
-    let leaderboardTable = document.getElementById("leaderboard");
+    let leaderboardTable = document.getElementById(`leaderboard-${difficultyChosen}`);
 
     // Clear the tbody
     let tbody = leaderboardTable.querySelector("tbody");
@@ -322,6 +379,8 @@ function startGame() {
     questionCounter.classList.remove('hide');
     timerElement.classList.remove('hide');
     seeLeaderboard.classList.add('hide');
+    difficultyLabel.classList.add('hide');
+    difficultyContainer.classList.add('hide');
 
     // fetch questions for game
     getQuestions();
