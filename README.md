@@ -1,39 +1,292 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# HACKATHON 2: Movie Madness by The Boolean Hooligans
 
-Welcome,
+A Code Institute Hackathon with the goal of creating a Film and TV quiz.
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+<hr>
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+#
+# Outline
 
-## Codeanywhere Reminders
+#
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+/*Placeholder - site displayed on multiple devices*/
+<p align="center">
+<img src="#" width="600" height="100%">
+</p>
 
-`python3 -m http.server`
+You can view the deployed website [here](https://github.com/ProfYaffle88/movie-quiz).
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+<hr>
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+#
+# UX
 
-`http_server`
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
 
-To log into the Heroku toolbelt CLI:
+## Users Stories 
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
----
+#
+# Scope 
 
-Happy coding!
+## Features
+ 
+
+
+### Future Features
+
+
+#
+# Structure (TBC)
+
+<hr>
+
+# Wireframes
+
+### _Home Page_ 
+
+<p align="center">
+<img src="#" width="1000px" height="528px">
+</p>
+
+### _Results_
+
+<p align="center">
+<img src="#" width="1000px" height="528px">
+</p>
+
+### _About_
+
+<p align="center">
+<img src="#" width="1000px" height="528px">
+</p>
+
+### _Mobile View - Home Page_
+
+<p align="center">
+<img src="#" width="500px" height="994px">
+</p>
+
+### _Mobile View - Results_
+
+<p align="center">
+<img src="#" width="500px" height="994px">
+</p>
+
+### _Mobile View - About_
+
+<p align="center">
+<img src="#" width="500px" height="994px">
+</p>
+
+<hr>
+
+# Surface
+
+<hr>
+
+# Technologies Used
+
+## Languages 
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+## Frameworks, Libraries & Programs Used
+
+- [Google Fonts](https://fonts.google.com/https://fonts.google.com/) - provided the font for the site.
+
+- [Font Awesome](https://fontawesome.com/) - was used for the site icons.
+
+- [Github](https://github.com/ProfYaffle88) - was used to store the project code.
+
+- [Balsamiq](https://balsamiq.com/) - was used to create site wireframes.
+
+- [The Trivia API](https://the-trivia-api.com/) - provided all question data, no key is required for frcertain limited free service. 
+
+- [Am I Responsive](http://ami.responsivedesign.is/) - to check if the site is responsive on different screen sizes.
+
+- [Free Online HTML Formatter](https://www.freeformatter.com/html-formatter.html) - was used to correct indentation issues and get rid of too much whitespace
+
+# Testing
+- Tested on . . . version browsers
+- Chrome Developer Tools are used to test the responsiveness on: Desktop, Laptop, Moto G4, Galaxy S5, iPhone 5/SE, iPhone 6,7,8, iPhone 6,7,8 Plus, iPad, iPad Pro, Galaxy Fold
+
+# Validating 
+The W3C Markup Validator and W3C CSS Validator Services were used to check my code for syntax errors in this project.
+
+- [HTML](https://validator.w3.org/#validate_by_input)
+
+<p align="center">
+<img src="#" width="400" height="100%">
+</p>
+
+- [CSS](https://jigsaw.w3.org/css-validator/)
+
+<p align="center">
+<img src="#" width="400" height="100%">
+</p>
+
+- [JS Hint](https://jshint.com/)
+<p align="center">
+<img src="#" width="400" height="100%">
+</p>
+
+- [Lighthouse tools](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring)
+<p align="center">
+<img src="#" width="400" height="100%">
+</p>
+
+## User Story Testing
+
+### **Testing Users Stories form (UX) Section**
+
+1.  As a new user of this website, 
+
+ *Desktop,Laptop View*
+
+<p align="center">
+<img src="#" width="700" height="100%">
+</p>
+        
+
+ *Tablet View* 
+
+<p align="center">
+<img src="#" width="500" height="100%">
+</p>
+
+ *Phone View*
+
+<p align="center">
+<img src="#" width="300" height="100%">
+</p>
+
+
+2. As a new user of this website, 
+
+<p align="center">
+<img src="#" width="600" height="100%">
+</p>
+
+3. As a new user of this website, 
+
+<p align="center">
+<img src="#" width="600" height="100%">
+</p>
+
+## Bugs and Issues
+
+- TBC
+
+<p align="center">
+<img src="#" width="300" height="100%">
+</p>
+
+- Design improvment- 
+
+- For the Gallery Lighthouse report-
+
+### **HTML Validator** 
+
+- *Warning* : 
+
+- *Warning* : 
+
+
+
+### **CSS Validator** 
+
+- *Value Error* : 
+
+- *Warning* :  
+
+- *Warning* : 
+
+- *Warning* : 
+
+- *Warning* 
+
+
+# Final Product 
+
+## Desktop View 
+ 
+### _Home Page_
+
+<p align="center">
+<img src="#" width="600" height="100%">
+</p>
+
+<p align="center">
+<img src="#" width="600" height="100%">
+</p>
+
+### _About_
+
+<p align="center">
+<img src="#" width="600" height="100%">
+</p>
+
+### _Contact_
+
+<p align="center">
+<img src="#" width="600" height="100%">
+</p>
+
+## Mobile View 
+ 
+### _Home Page_
+
+<p align="center">
+<img src="#" width="600" height="100%">
+</p>
+
+<p align="center">
+<img src="#" width="600" height="100%">
+</p>
+
+### _About_
+
+<p align="center">
+<img src="#" width="600" height="100%">
+</p>
+
+### _Contact_
+
+<p align="center">
+<img src="#" width="600" height="100%">
+</p>
+
+
+# Deployment
+
+## GitHub Pages
+1. GitHub Pages was used to deploy the site.
+2. The site was deployed early for the purposes of testing.
+3. The latest deployed version can be seen [here](https://profyaffle88.github.io/donkey-audit/)
+
+
+# Credits
+
+## Content
+
+- Contains Parliamentary information licensed under the Open Parliament Licence v3.0. Provided through the [UK Parliament Members API](https://members-api.parliament.uk/index.html)
+- The paper-texture background image is by [bedneyimages on Freepik](https://www.freepik.com/free-photo/white-texture_946233.htm#query=paper%20background&position=0&from_view=search&track=ais&uuid=e0d76099-8e15-4dfe-8c4e-20760eaf5938)
+- All code was written by [ProfYaffle88](https://github.com/users/ProfYaffle88)
+- The format of this ReadMe.md was adapted from a docoument by [Iris Smok](https://github.com/Iris-Smok)
+- The header, footer and navbar were adapted from 
+- Stack Overflow provided several solutions to multiple issues including alignment, positioning, and responsiveness. [Stack Overflow](https://stackoverflow.com/questions)
+
+## Media
+
+- Newspaper livery element was created using [Canva](https://www.canva.com/)
+- MP portraits are provided through the UK Parliament Member API.
+
+## Acknowledgements
+
+- Thanks to w3 Schools, Stack Overflow, Code Institute and above all the holy trinity of instructors; Iris, Martin and Kevin.
