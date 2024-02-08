@@ -252,6 +252,7 @@ footer {
     position: relative;
     margin: 10vh auto; /* Adjust the top margin as needed */
     transform: translateY(-50%);
+    position :absolute;
   }
 
   }
@@ -263,8 +264,8 @@ footer {
   }
 
   .btn-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns as needed */
     gap: 10px;
     margin: 20px 0;
   }
@@ -273,7 +274,6 @@ footer {
     width: 100%;
     margin-bottom: 10px;
   }
-
   .social-icons {
     left: 100px;
     bottom: 5px;
