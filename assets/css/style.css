@@ -205,7 +205,7 @@ footer {
 
   .social-icons {
     left: 100px;
-    bottom: 31px;
+    bottom: 0;
     display: flex;
     font-size: 25px;
     color: white;
@@ -217,7 +217,7 @@ footer {
     position: fixed;
     bottom: 0px;
     left: 0;
-    width: 100%;
+    width: 86%;
     background-color: #333;
     padding: 60px;
     text-align: center;
