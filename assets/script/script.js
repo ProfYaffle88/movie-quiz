@@ -62,6 +62,16 @@ function revealLeaderboard() {
     leaderboardContainer.classList.remove('hide');
     tryAgainButton.classList.remove('hide');
     leaderboardButton.classList.add('hide'); // Hide submite score field
+
+    // Apply medal colors to existing leaderboard rows
+    let leaderboardRows = document.querySelectorAll('#leaderboard tbody tr');
+    let colors = ["gold", "silver", "#cd7f32"];
+
+    leaderboardRows.forEach((row, index) => {
+        if (index < 3) {
+            row.style.backgroundColor = colors[index];
+        }
+    });
 }
 
 /* Updates the question counter */
