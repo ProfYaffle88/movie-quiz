@@ -1,7 +1,6 @@
 /*General Styles*/
 *, *::before, *::after {
   box-sizing: border-box;
-  font-family: Gotham Rounded;
 }
 
 :root {
@@ -156,3 +155,7 @@ footer {
   color: #EF233C ; /* Adjust the hover color as needed */
 }
 
+/*overiding generalised style for social links*/
+#social {
+  font-family: sans-serif;
+}
