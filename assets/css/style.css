@@ -141,7 +141,9 @@ footer {
   text-align: center;
 }
 .social-icons {
-  font-size: 5rem;
+  display: flex;
+  justify-content: space-around;
+  font-size: 25px;
   color: white;
   position:relative;
  
