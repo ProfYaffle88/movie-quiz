@@ -18,19 +18,19 @@ const leaderboardMedium = document.getElementById('leaderboard-medium');
 const leaderboardHard = document.getElementById('leaderboard-hard');
 const leaderboardRandom = document.getElementById('leaderboard-random');
 const difficultyContainer = document.getElementById('difficulty-selector-container');
-const difficultyChosen = document.getElementById('difficulty-selector');
+// const difficultyChosen = document.getElementById('difficulty-selector');
 const difficultyLabel = document.getElementById('diff-select-label');
 let playerNameInput = document.getElementById('player-name-submit');
 let playerName = '';
 
-let timer, timeLeft, score, currentQuestionIndex, questionsList, answered, leaderboardRows, selectedDifficulty;
+let timer, timeLeft, score, currentQuestionIndex, questionsList, answered, leaderboardRows, difficultyChosen;
 let leaderboardScores = []; //Set leaderboard scores as an empty array - pull existing leaderboard?
 
 /* Global event listners */
 // Event listener for difficulty selector dropdown change
 document.getElementById('difficulty-selector').addEventListener('change', function(event) {
-    selectedDifficulty = event.target.value;
-    console.log(selectedDifficulty);
+    difficultyChosen = event.target.value;
+    console.log(difficultyChosen);
 });
 
 /* Event Listeners - "if target element exists"*/
@@ -92,7 +92,7 @@ function revealLeaderboard() {
     leaderboardButton.classList.add('hide'); // Hide submite score field
 
     // Apply medal colors to existing leaderboard rows
-    let leaderboardRows = document.querySelectorAll(`#leaderboard-${selectedDifficulty} tbody tr`);
+    let leaderboardRows = document.querySelectorAll(`#leaderboard-${difficultyChosen} tbody tr`);
     let colors = ["gold", "silver", "#cd7f32"];
 
     leaderboardRows.forEach((row, index) => {
