@@ -181,7 +181,7 @@ footer {
     flex-flow:column wrap;
   } */
   
-  /* Small devices (phones) */
+  /* Small devices (phones) ------------------------------------------------------ tyrels go !*/
 @media only screen and (max-width: 374px) {
   
   body {
@@ -207,7 +207,7 @@ footer {
     margin-bottom: 10px; /* Add some spacing between answer buttons */
   }
 
-  #social {
+  footer {
     padding: 5px; /* Adjust padding for better spacing on small screens */
     display: flex;
     width: 56%;
