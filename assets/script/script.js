@@ -157,7 +157,10 @@ function selectAnswer(e) {
 
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct === 'true';
+    // Set status class based on correctness - HTML body
     setStatusClass(document.body, correct);
+    // Set status class based on correctness - Selected Button
+    setStatusClass(selectedButton, correct);
     if (correct) {
         score++; // Incremement score
         updateScore(); // Update current score
@@ -178,9 +181,9 @@ function selectAnswer(e) {
 function setStatusClass(element, correctAnswer) {
     clearStatusClass(element);
     if (correctAnswer) {
-        element.classList.add('correct');
+        element.classList.add('correct', 'btn.correct');
     } else {
-        element.classList.add('wrong');
+        element.classList.add('wrong', 'btn.wrong');
     }
 }
 
@@ -188,6 +191,8 @@ function setStatusClass(element, correctAnswer) {
 function clearStatusClass(element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
+    element.classList.remove('btn.correct');
+    element.classList.remove('btn.wrong');
 }
 
 /* Update current score during game */
