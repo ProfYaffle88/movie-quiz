@@ -19,7 +19,6 @@ const leaderboardHard = document.getElementById('leaderboard-hard');
 const leaderboardRandom = document.getElementById('leaderboard-classic');
 const difficultyContainer = document.getElementById('difficulty-selector-container');
 const instructions = document.getElementById('instructions');
-// const difficultyChosen = document.getElementById('difficulty-selector');
 const difficultyLabel = document.getElementById('diff-select-label');
 let playerNameInput = document.getElementById('player-name-submit');
 let playerName = '';
@@ -68,7 +67,7 @@ function eventListeners() {
         document.getElementById('instructions-btn').addEventListener('click', function(event) {
             // Prevent default form submission behavior
             event.preventDefault();
-            replace('https://profyaffle88.github.io/movie-quiz/instructions.html');
+            window.location = './instructions.html';
         });
     }
 }
