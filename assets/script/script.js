@@ -83,6 +83,10 @@ function eventListeners() {
 
 eventListeners();
 
+console.log("window.location.pathname:", window.location.pathname);
+console.log("Hardcoded string:", 'https://profyaffle88.github.io/movie-quiz/index.html');
+
+
 /* Leaderboard reveal */
 function revealLeaderboard() {
     // Hide everything and reveal leaderboard table container and try again button
