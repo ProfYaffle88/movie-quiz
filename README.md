@@ -130,12 +130,11 @@ assets/images/Screenshot 2024-02-09 at 10.28.26.png
 
   
  
-Mobile View - Home Page
- 
-Mobile View - Results
- 
-Mobile View - About
- 
+Mobile View - Home Page,
+Mobile View - Results,
+Mobile View - About:
+
+assets/images/phone balsamiq.png
  
 Surface
  
