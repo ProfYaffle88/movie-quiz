@@ -33,14 +33,14 @@ document.getElementById('difficulty-selector').addEventListener('change', functi
     difficultyChosen = event.target.value;
 });
 
-/* Event Listeners - "if target element exists"*/
+/* Event Listeners - "if target element exists" */
 function eventListeners() {
     // Add event listener to the start button only if it exists
     if (startButton) {
         startButton.addEventListener('click', startGame);
     }
 
-        // Event Listener for score submit
+    // Event Listener for score submit
     if (leaderboardButton) {
         document.getElementById('leaderboard-form').addEventListener('submit', function(event) {
             // Prevent default form submission behavior
@@ -64,8 +64,15 @@ function eventListeners() {
             // Call the revealLeaderboard function
             revealLeaderboard();
         });
+        
+        document.getElementById('instructions-btn').addEventListener('click', function(event) {
+            // Prevent default form submission behavior
+            event.preventDefault();
+            replace('https://profyaffle88.github.io/movie-quiz/instructions.html');
+        });
     }
 }
+
 eventListeners();
 
 /* Leaderboard reveal */
