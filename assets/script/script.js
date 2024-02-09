@@ -67,12 +67,25 @@ function eventListeners() {
         document.getElementById('instructions-btn').addEventListener('click', function(event) {
             // Prevent default form submission behavior
             event.preventDefault();
-            window.location = '../../../instructions.html';
+            
+            // Construct the URL dynamically
+            const baseUrl = window.location.origin;
+            console.log(baseUrl);
+            const instructionsUrl = baseUrl + '/movie-quiz/instructions.html';
+            console.log(instructionsUrl);
+        
+            // Navigate to the instructions page
+            window.location.href = instructionsUrl;
         });
+        
     }
 }
 
 eventListeners();
+
+console.log("window.location.pathname:", window.location.pathname);
+console.log("Hardcoded string:", 'https://profyaffle88.github.io/movie-quiz/index.html');
+
 
 /* Leaderboard reveal */
 function revealLeaderboard() {
@@ -384,11 +397,15 @@ function updateLeaderboardView() {
 
 /* Start Game function */
 function startGame() {
-    if (window.location.pathname !== '/index.html') {
-        // Redirect to index.html
-        window.location.href = '../../../index.html';
+    const baseUrl = window.location.origin+`/movie-quiz/index.html`;
+    console.log(baseUrl);
+    if (`https://profyaffle88.github.io`+window.location.pathname === 'https://profyaffle88.github.io/movie-quiz/index.html') {
+        return; 
+        } else {
+        window.location.href = baseUrl;
         return; // Stop further execution of the function
     }
+    
     
     // reveal/hide page elements
     scoreContainer.classList.remove('hide');
