@@ -97,7 +97,8 @@ Quiz Accessibility:
 ![image_720](https://github.com/ProfYaffle88/movie-quiz/assets/153202154/ab719689-746e-4c23-9233-787bc36c63aa)
 
 # Final Product
-![image](https://github.com/ProfYaffle88/movie-quiz/assets/153202154/3ce4645e-9edd-4969-867b-448a9418a965)
+![image](https://github.com/ProfYaffle88/movie-quiz/assets/153202154/62ce653a-f563-4a23-8880-4695067f2225)
+
 
 GitHub Page - https://github.com/ProfYaffle88/movie-quiz
 
