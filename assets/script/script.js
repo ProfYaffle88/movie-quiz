@@ -395,7 +395,7 @@ function updateLeaderboardView() {
 function startGame() {
     const baseUrl = window.location.origin;
     console.log(baseUrl);
-    if (window.location.pathname !== '/index.html') {
+    if (window.location.pathname !== 'https://profyaffle88.github.io/movie-quiz/index.html') {
         // Construct the URL dynamically
         const indexUrl = baseUrl + '/movie-quiz/index.html';
         console.log(indexUrl);    
