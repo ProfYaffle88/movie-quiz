@@ -399,8 +399,9 @@ function updateLeaderboardView() {
 function startGame() {
     const baseUrl = window.location.origin+`/movie-quiz/index.html`;
     console.log(baseUrl);
-    if (`https://profyaffle88.github.io`+window.location.pathname !== 'https://profyaffle88.github.io/movie-quiz/index.html') {
-        // Construct the URL dynamically
+    if (`https://profyaffle88.github.io`+window.location.pathname === 'https://profyaffle88.github.io/movie-quiz/index.html') {
+        return; 
+        } else {
         window.location.href = baseUrl;
         return; // Stop further execution of the function
     }
