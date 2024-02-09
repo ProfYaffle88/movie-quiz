@@ -242,7 +242,7 @@ footer {
   }
 
   .container {
-    width: 100%; /* Make the container full-width on small screens */
+    width: 80%; /* Make the container full-width on small screens */
     max-width: none; /* Remove max-width to allow content to shrink */
     border-radius: 0; /* Remove border-radius on small screens */
     justify-content: center; /* Center content horizontally */
@@ -257,15 +257,6 @@ footer {
   .btn {
     width: 100%; /* Make answer buttons full-width */
     margin-bottom: 10px; /* Add some spacing between answer buttons */
-  }
-
-  footer {
-    padding: 5px; /* Adjust padding for better spacing on small screens */
-    display: flex;
-    width: 56%;
-    flex-direction: column;
-    align-items: center;
-    margin-top: auto;
   }
 
   #social-icons {
