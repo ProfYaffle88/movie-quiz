@@ -18,7 +18,7 @@ const leaderboardMedium = document.getElementById('leaderboard-medium');
 const leaderboardHard = document.getElementById('leaderboard-hard');
 const leaderboardRandom = document.getElementById('leaderboard-classic');
 const difficultyContainer = document.getElementById('difficulty-selector-container');
-// const difficultyChosen = document.getElementById('difficulty-selector');
+const instructions = document.getElementById('instructions');
 const difficultyLabel = document.getElementById('diff-select-label');
 let playerNameInput = document.getElementById('player-name-submit');
 let playerName = '';
@@ -30,17 +30,16 @@ let leaderboardScores = []; //Set leaderboard scores as an empty array
 // Event listener for difficulty selector dropdown change
 document.getElementById('difficulty-selector').addEventListener('change', function(event) {
     difficultyChosen = event.target.value;
-    console.log(difficultyChosen);
 });
 
-/* Event Listeners - "if target element exists"*/
+/* Event Listeners - "if target element exists" */
 function eventListeners() {
     // Add event listener to the start button only if it exists
     if (startButton) {
         startButton.addEventListener('click', startGame);
     }
 
-        // Event Listener for score submit
+    // Event Listener for score submit
     if (leaderboardButton) {
         document.getElementById('leaderboard-form').addEventListener('submit', function(event) {
             // Prevent default form submission behavior
@@ -64,8 +63,15 @@ function eventListeners() {
             // Call the revealLeaderboard function
             revealLeaderboard();
         });
+        
+        document.getElementById('instructions-btn').addEventListener('click', function(event) {
+            // Prevent default form submission behavior
+            event.preventDefault();
+            window.location = './instructions.html';
+        });
     }
 }
+
 eventListeners();
 
 /* Leaderboard reveal */
@@ -80,6 +86,7 @@ function revealLeaderboard() {
     seeLeaderboard.classList.add('hide');
     difficultyLabel.classList.add('hide');
     difficultyContainer.classList.add('hide');
+    instructions.classList.add('hide');
 
     switch (difficultyChosen) {
         case 'easy':
@@ -267,15 +274,9 @@ function showFinalScore() {
 
     // Add event listener to playerNameInput
     playerNameInput.addEventListener('input', function(event) {
-    // Log the event and its properties to check for any issues
-    console.log('Event:', event);
-    console.log('Input value:', event.target.value);
 
     // Update playerName variable when input value changes
     playerName = event.target.value;
-
-    // Log playerName to verify its value
-    console.log('Player name:', playerName);
 });
 }
 
@@ -393,6 +394,7 @@ function startGame() {
     seeLeaderboard.classList.add('hide');
     difficultyLabel.classList.add('hide');
     difficultyContainer.classList.add('hide');
+    instructions.classList.add('hide');
 
     // fetch questions for game
     getQuestions();

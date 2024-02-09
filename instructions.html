@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/images/favicon_io (6)/favicon-16x16.png" type="image/x-icon">
+    <!--Movie Madness Favicon-->
+    <script src="https://kit.fontawesome.com/fdd73ab055.js" crossorigin="anonymous"></script><!--social icons-->
+    <script defer src="assets/script/script.js"></script>
+    <title>Movie Madness</title>
+</head>
+
+<body>
+    <header class="logo"> <img src="assets/images/MovieMadness.png" alt="Movie Madness Logo">
+    </header>
+
+    <div class="reel-vrt">
+        <img id="reel-vrt" src="assets/images/filmreel3.png" alt="Film Reel">
+    </div>
+
+    <div class="reel-hz">
+        <img src="assets/images/filmreel2.png" alt="film reel">
+    </div>
+
+    <div class="container">
+        <div class="controls">
+            <!-- Instructions -->
+            <h1 class="instructions">Answer 12 questions of your chosen difficult and prove your knowledge!</h1>
+            <h2 class="instructions">Select "Classic" for a random assortment of difficulties!</h2>
+
+            <!-- Start Button - not hidden on landing -->
+            <button id="start-btn" class="start-btn btn">Start</button>
+            <!-- Try again button - hidden on landing -->
+            <div id="try-again">
+                <a id="try-again-btn" href="index.html" class="button btn hide">Try Again</a>
+            </div>
+            <!-- Difficulty selector - wip -->
+            <div id="difficulty-selector-container">
+                <label id="diff-select-label" for="difficulty-selector">Choose your difficulty:</label>
+                <select id="difficulty-selector" aria-placeholder="Leave blank for the classic random experience">
+                    <option value="classic" selected>Classic</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="reel-hz">
+        <img src="assets/images/filmreel2.png" alt="Film Reel">
+    </div>
+    <footer id="social"> <!--footer with social icons -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                aria-label="Visit our Facebook page (opens in a new tab)"
+                title="Visit our Facebook page (opens in a new tab)">
+                <i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com/" target="_blank" rel="noopener"
+                aria-label="Visit our twitter page (opens in a new tab)"
+                title="Visit our twitter page (opens in a new tab)">
+                <i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener"
+                aria-label="Visit our instagram page (opens in a new tab)"
+                title="Visit our instagram page (opens in a new tab)">
+                <i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener"
+                aria-label="Visit our youtube page (opens in a new tab)"
+                title="Visit our youtube page (opens in a new tab)">
+                <i class="fab fa-youtube"></i></a>
+            <a href="mailto:?subject=Check%20out%20this%20quiz!&body=Hey,%20I%20thought%20you%20might%20be%20interested%20in%20this%20quiz:%20https://profyaffle88.github.io/movie-quiz/"
+                aria-label="Send this quiz to a friend by email"
+                title="Send this quiz to a friend by email">
+                <i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
