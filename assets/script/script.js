@@ -67,7 +67,7 @@ function eventListeners() {
         document.getElementById('instructions-btn').addEventListener('click', function(event) {
             // Prevent default form submission behavior
             event.preventDefault();
-            window.location = './instructions.html';
+            window.location = './movie-quiz/instructions.html';
         });
     }
 }
