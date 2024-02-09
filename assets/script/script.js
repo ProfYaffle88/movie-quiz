@@ -383,6 +383,12 @@ function updateLeaderboardView() {
 
 /* Start Game function */
 function startGame() {
+    if (window.location.pathname !== '/index.html') {
+        // Redirect to index.html
+        window.location.href = '/index.html';
+        return; // Stop further execution of the function
+    }
+    
     // reveal/hide page elements
     scoreContainer.classList.remove('hide');
     startButton.classList.add('hide');
