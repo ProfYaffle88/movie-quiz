@@ -1,39 +1,98 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome,
-
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
-
-## Codeanywhere Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
-
-`python3 -m http.server`
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
-
-`http_server`
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
+HACKATHON 2: Movie Madness by The Boolean Hooligans A Code Institute Hackathon with the goal of creating a Film and TV quiz.
+Outline /Placeholder - site displayed on multiple devices/ You can view the deployed website here....
+UX: Users Stories: . As a movie enthusiast, I want to be able to access the "Movie Madness" quiz easily from any device, so I can enjoy the quiz on my preferred platform.
+. As a user, I want an engaging and visually appealing landing page for "Movie Madness," so I am motivated to start the quiz.
+. As a quiz participant, I want clear instructions on how to start the quiz and navigate through the questions, so I can easily understand and enjoy the experience.
+. As a movie buff, I want diverse and challenging questions in the "Movie Madness" quiz, and trivia related to films, so I can test and expand my knowledge of movies.
+. As a user, I want a time limit for each question in "Movie Madness," adding an element of excitement and challenge to the quiz.
+. As a participant, I want immediate feedback on my answers in "Movie Madness," so I can learn from my mistakes and reinforce my movie knowledge.
+. As a user, I want to track my progress throughout the "Movie Madness" quiz, so I can see how many questions I've answered and how many are remaining.
+. As a competitive user, I want to see my final score at the end of the "Movie Madness" quiz.
+. As a user who enjoys sharing, I want the option to share my "Movie Madness" quiz results on social media platforms, so I can challenge my friends and showcase my movie knowledge. . As a participant, I want a "Try Again" button at the end of the quiz in "Movie Madness," so I can replay and improve my score.
+. As a participant, I want a countdown or progress bar during the quiz to indicate the time remaining for each question, helping me manage my time effectively.
+. These user stories cover a range of features and considerations to create an enjoyable and comprehensive "Movie Madness" quiz experience for users.
+Acceptance Criteria
+Quiz Accessibility: • The "Movie Madness" quiz should be accessible on various devices, including desktops, tablets, and mobile phones. Diverse Question Content: • The quiz questions in "Movie Madness" should cover a broad range of movie genres, and trivia. Progress Tracking: • Participants should be able to see their progress throughout the quiz, including the number of questions answered and remaining. Final Score Display: • At the end of the quiz, users should see their final score, along with a breakdown of correct and incorrect answers.
+Set Up Development Environment:
+• Create a development environment with the necessary tools and frameworks for building a web-based quiz application. Design Landing Page:
+• Design an engaging landing page for the "Movie Madness" quiz, including graphics and a clear "Start Quiz" button. Implement Quiz Logic:
+• Develop the backend logic for the quiz, including question retrieval, answer validation, and score calculation. Create Question Database:
+• Set up a database or API integration to store and retrieve a diverse set of movie-related questions for the quiz.
+Implement Timer Functionality:
+• Integrate a timer for each quiz question, ensuring that participants have a specified time to answer.
+Build Question Presentation:
+• Implement the frontend logic to present questions one at a time, with options for user selection.
+Track User Progress:
+• Implement features to track and display user progress throughout the quiz, including question count.
+Display Final Score:
+• Develop the functionality to display the user's final score at the end of the quiz, along with a breakdown of correct and incorrect answers.
+Add Try Again Feature:
+• Implement a "Try Again" button at the end of the quiz, allowing users to replay and attempt to improve their score.
+Ensure Accessibility Compliance:
+• Conduct accessibility testing and make necessary adjustments to ensure compliance with accessibility standards.
+Create Countdown or Progress Bar:
+• Implement a visible countdown or progress bar during the quiz to indicate the time remaining for each question.
+Testing:
+• Conduct thorough testing of the entire quiz application to identify and fix any bugs or issues.
+Deployment:
+• Deploy the "Movie Madness" quiz application to a web server, making it accessible to users.
+Documentation:
+• Document the codebase, including instructions for future development or maintenance.
+Scope
+Features:
+Connected via an API with questions and answers being generated.
+Leaderboard to display top scores.
+Share quiz with friends.
+Timer on questions
+Future Features:
+Difficulty selector
+Structure (TBC)
+Wireframes
+Home Page: .... assets/images/Screenshot 2024-02-09 at 10.24.38.png
+https://github.com/ProfYaffle88/movie-quiz/blob/SNLanger-patch-1/assets/images/Screenshot%202024-02-09%20at%2010.24.38.png
+Question Page: .... assets/images/Screenshot 2024-02-09 at 10.27.07.png
+https://github.com/ProfYaffle88/movie-quiz/blob/SNLanger-patch-1/assets/images/Screenshot%202024-02-09%20at%2010.27.07.png
+Results: .... assets/images/Screenshot 2024-02-09 at 10.28.26.png
+https://github.com/ProfYaffle88/movie-quiz/blob/SNLanger-patch-1/assets/images/Screenshot%202024-02-09%20at%2010.28.26.png
+Mobile View - Home Page, Mobile View - Results, Mobile View - About:
+assets/images/phone balsamiq.png https://github.com/ProfYaffle88/movie-quiz/blob/SNLanger-patch-1/assets/images/phone%20balsamiq.png
+Surface
+Technologies Used
+Languages
+• HTML5
+• CSS3
+• JavaScript
+Frameworks, Libraries & Programs Used
+• Google Fonts - provided the font for the site.
+• Font Awesome - was used for the site icons.
+• Github - was used to store the project code.
+• Balsamiq - was used to create site wireframes.
+• The Trivia API - provided all question data, no key is required for certain limited free services.
+• Am I Responsive - to check if the site is responsive on different screen sizes.
+• Free Online HTML Formatter - was used to correct indentation issues and get rid of too much whitespace
+Testing
+• Tested on . . . version browsers
+• Chrome Developer Tools are used to test the responsiveness on: Desktop, Laptop, Moto G4, Galaxy S5, iPhone 5/SE, iPhone 6,7,8, iPhone 6,7,8 Plus, iPad, iPad Pro, Galaxy Fold Validating
+The W3C Markup Validator and W3C CSS Validator Services were used to check my code for syntax errors in this project.
+• HTML • CSS • JS Hint • Lighthouse tools
+User Story Testing
+Testing Users Stories form (UX) Section
+Desktop,Laptop View
+Bugs and Issues • TBC
+• Design improvement-
+• For the Gallery Lighthouse report-
+HTML Validator
+• Warning : • Warning :
+CSS Validator • Value Error : • Warning : • Warning : • Warning : • Warning
+Final Product
+Desktop View
+Home Page
+GitHub Pages
+GitHub Pages was used to deploy the site.
+The site was deployed early for testing.
+The latest deployed version can be seen
+Credits Content
+• All code was written by The Boolean Hooligans; Nyx, tyrelm1, ProfYaffle88, and fearlessly led into the breach by SNLanger.
+• The format of this ReadMe.md was adapted from a document by Iris Smok
+• Stack Overflow provided several solutions to multiple issues including alignment, positioning, and responsiveness. Stack Overflow Acknowledgements
+• Thanks to w3 Schools, Stack Overflow, Code Institute and above all the holy trinity of instructors; Iris, Martin and Kevin.
