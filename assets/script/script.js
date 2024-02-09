@@ -393,14 +393,11 @@ function updateLeaderboardView() {
 
 /* Start Game function */
 function startGame() {
-    const baseUrl = window.location.origin;
+    const baseUrl = window.location.origin+`/movie-quiz/index.html`;
     console.log(baseUrl);
     if (window.location.pathname !== 'https://profyaffle88.github.io/movie-quiz/index.html') {
         // Construct the URL dynamically
-        const indexUrl = baseUrl + '/movie-quiz/index.html';
-        console.log(indexUrl);    
-        // Redirect to index.html
-        window.location.href = indexUrl;
+        window.location.href = baseUrl;
         return; // Stop further execution of the function
     }
     
