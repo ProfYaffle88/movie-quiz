@@ -67,8 +67,17 @@ function eventListeners() {
         document.getElementById('instructions-btn').addEventListener('click', function(event) {
             // Prevent default form submission behavior
             event.preventDefault();
-            window.location = '../../../instructions.html';
+            
+            // Construct the URL dynamically
+            const baseUrl = window.location.origin;
+            console.log(baseUrl);
+            const instructionsUrl = baseUrl + '/movie-quiz/instructions.html';
+            console.log(instructionsUrl);
+        
+            // Navigate to the instructions page
+            window.location.href = instructionsUrl;
         });
+        
     }
 }
 
@@ -385,10 +394,17 @@ function updateLeaderboardView() {
 /* Start Game function */
 function startGame() {
     if (window.location.pathname !== '/index.html') {
+        // Construct the URL dynamically
+        const baseUrl = window.location.origin;
+        console.log(baseUrl);
+        const indexUrl = baseUrl + '/movie-quiz/index.html';
+        console.log(indexUrl);
+    
         // Redirect to index.html
-        window.location.href = '../../../index.html';
+        window.location.href = indexUrl;
         return; // Stop further execution of the function
     }
+    
     
     // reveal/hide page elements
     scoreContainer.classList.remove('hide');
