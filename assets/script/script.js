@@ -86,8 +86,9 @@ function revealLeaderboard() {
     seeLeaderboard.classList.add('hide');
     difficultyLabel.classList.add('hide');
     difficultyContainer.classList.add('hide');
-    instructions.classList.add('hide');
-
+    if (instructions) {
+        instructions.classList.add('hide');
+    };
     switch (difficultyChosen) {
         case 'easy':
             leaderboardEasy.classList.remove('hide');
