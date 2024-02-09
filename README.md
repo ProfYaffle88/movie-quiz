@@ -7,18 +7,28 @@ You can view the deployed website here....
 
 UX:
 Users Stories:
-As a movie enthusiast, I want to be able to access the "Movie Madness" quiz easily from any device, so I can enjoy the quiz on my preferred platform. 
-As a user, I want an engaging and visually appealing landing page for "Movie Madness," so I am motivated to start the quiz. 
-As a quiz participant, I want clear instructions on how to start the quiz and navigate through the questions, so I can easily understand and enjoy the experience. 
-As a movie buff, I want diverse and challenging questions in the "Movie Madness" quiz, and trivia related to films, so I can test and expand my knowledge of movies. 
-As a user, I want a time limit for each question in "Movie Madness," adding an element of excitement and challenge to the quiz. 
-As a participant, I want immediate feedback on my answers in "Movie Madness," so I can learn from my mistakes and reinforce my movie knowledge. 
-As a user, I want to track my progress throughout the "Movie Madness" quiz, so I can see how many questions I've answered and how many are remaining. 
-As a competitive user, I want to see my final score at the end of the "Movie Madness" quiz. 
-As a user who enjoys sharing, I want the option to share my "Movie Madness" quiz results on social media platforms, so I can challenge my friends and showcase my movie knowledge. 
-As a participant, I want a "Try Again" button at the end of the quiz in "Movie Madness," so I can replay and improve my score. 
-As a participant, I want a countdown or progress bar during the quiz to indicate the time remaining for each question, helping me manage my time effectively. 
-These user stories cover a range of features and considerations to create an enjoyable and comprehensive "Movie Madness" quiz experience for users 
+. As a movie enthusiast, I want to be able to access the "Movie Madness" quiz easily from any device, so I can enjoy the quiz on my preferred platform. 
+
+. As a user, I want an engaging and visually appealing landing page for "Movie Madness," so I am motivated to start the quiz. 
+
+. As a quiz participant, I want clear instructions on how to start the quiz and navigate through the questions, so I can easily understand and enjoy the experience. 
+
+. As a movie buff, I want diverse and challenging questions in the "Movie Madness" quiz, and trivia related to films, so I can test and expand my knowledge of movies. 
+
+. As a user, I want a time limit for each question in "Movie Madness," adding an element of excitement and challenge to the quiz. 
+
+. As a participant, I want immediate feedback on my answers in "Movie Madness," so I can learn from my mistakes and reinforce my movie knowledge. 
+
+. As a user, I want to track my progress throughout the "Movie Madness" quiz, so I can see how many questions I've answered and how many are remaining. 
+
+. As a competitive user, I want to see my final score at the end of the "Movie Madness" quiz. 
+
+. As a user who enjoys sharing, I want the option to share my "Movie Madness" quiz results on social media platforms, so I can challenge my friends and showcase my movie knowledge. 
+. As a participant, I want a "Try Again" button at the end of the quiz in "Movie Madness," so I can replay and improve my score. 
+
+. As a participant, I want a countdown or progress bar during the quiz to indicate the time remaining for each question, helping me manage my time effectively. 
+
+. These user stories cover a range of features and considerations to create an enjoyable and comprehensive "Movie Madness" quiz experience for users.
 
 Acceptance Criteria  
 Quiz Accessibility: 
