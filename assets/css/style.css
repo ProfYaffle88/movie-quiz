@@ -212,6 +212,12 @@ footer {
   body {
     font-size: 16px; /* Adjust font size for better readability on small screens */
     min-height: auto;
+    background: url("assets/images/filmreel4.png") no-repeat fixed center;
+  }
+
+  /* Causing size issues on small screens? */
+  .reel {
+    display: none;
   }
 
   .container {
@@ -258,5 +264,12 @@ footer {
 @media (max-width: 800px) {
  .flex-item-right, .flex-item-left {
    flex: 100%;
+  }
+  /* Causing size issues on small screens? */
+  .reel {
+    display: none;
+  }
+  body {
+    background: url("assets/images/filmreel3.png") no-repeat fixed center;
   }
 }
