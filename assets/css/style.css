@@ -138,6 +138,24 @@ margin-bottom: 15px;
   margin-bottom: 5px;
 }
 /*footer and social media icons*/
+/* Hide title text by default */
+[title]::after {
+  content: attr(title);
+  display: none;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  margin-top: 10px;
+}
+
+/* Show title text on hover */
+[title]:hover::after {
+  display: block;
+}
+
 footer {
   position: fixed;
   bottom: 0;
@@ -179,6 +197,9 @@ footer {
   display: none !important; /* Prevent specificity issues! */
 }
 
+.reel-vrt {
+  display: none;
+}
 
 /* Media Queries*/
 
@@ -194,6 +215,30 @@ footer {
   body {
     font-size: 16px; /* Adjust font size for better readability on small screens */
     min-height: auto;
+  }
+
+  /* Causing size issues on small screens? */
+  .reel-hz {
+    display: none;
+  }
+
+  .reel-vrt {
+    position: relative; /* Ensure the container acts as the positioning context for absolute positioned children */
+    display: flex; /* Use flexbox layout for the container and its children */
+    justify-content: center; /* Center the child elements horizontally */
+    align-items: center; /* Center the child elements vertically */
+  }
+
+  #reel-vrt {
+    display: block;
+    position: absolute; /* Position the background image absolutely within the container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/filmreel4.png) no-repeat fixed center;
+    background-size: cover; /* Stretch the background image to cover the entire container */
+    z-index: -1; /* Ensure the image is behind other content */
   }
 
   .container {
@@ -240,5 +285,27 @@ footer {
 @media (max-width: 800px) {
  .flex-item-right, .flex-item-left {
    flex: 100%;
+  }
+  /* Causing size issues on small screens? */
+  .reel-hz {
+    display: none;
+  }
+  .reel-vrt {
+    position: relative; /* Ensure the container acts as the positioning context for absolute positioned children */
+    display: flex; /* Use flexbox layout for the container and its children */
+    justify-content: center; /* Center the child elements horizontally */
+    align-items: center; /* Center the child elements vertically */
+  }
+    
+  #reel-vrt {    
+    display: block;
+    position: absolute; /* Position the background image absolutely within the container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/filmreel3.png) no-repeat fixed center;
+    background-size: cover; /* Stretch the background image to cover the entire container */
+    z-index: -1; /* Ensure the image is behind other content */
   }
 }

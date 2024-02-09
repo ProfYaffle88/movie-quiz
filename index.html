@@ -16,7 +16,11 @@
     <header class="logo"> <img src="assets/images/MovieMadness.png" alt="Movie Madness Logo">
     </header>
 
-    <div class="reel">
+    <div class="reel-vrt">
+        <img id="reel-vrt" src="assets/images/filmreel3.png" alt="Film Reel">
+    </div>
+
+    <div class="reel-hz">
         <img src="assets/images/filmreel2.png" alt="film reel">
     </div>
 
@@ -53,8 +57,19 @@
         <div class="controls">
             <!-- Start Button - not hidden on landing -->
             <button id="start-btn" class="start-btn btn">Start</button>
+            <!-- Try again button - hidden on landing -->
             <div id="try-again">
                 <a id="try-again-btn" href="index.html" class="button btn hide">Try Again</a>
+            </div>
+            <!-- Difficulty selector - wip -->
+            <div id="difficulty-selector-container">
+                <label id="diff-select-label" for="difficulty-selector">Choose your difficulty:</label>
+                <select id="difficulty-selector" aria-placeholder="Leave blank for the classic random experience">
+                    <option value="classic" selected>Classic</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
             </div>
         </div>
 
@@ -71,7 +86,7 @@
             </form>
 
             <!-- Leaderboard table element -->
-            <table id="leaderboard" class="hide">
+            <table id="leaderboard-classic" title="Classic Difficulty" class="hide">
                 <thead>
                     <tr>
                         <th>Rank</th>
@@ -81,64 +96,277 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th>1</th> <!-- index postion + 1 -->
-                        <th>Boolean Hooligans</th> <!-- name entered -->
-                        <th>12</th> <!-- final score -->
+                        <th>1</th> 
+                        <th>Boolean Hooligans</th> 
+                        <th>12</th> 
                     </tr>
                     <tr>
-                        <th>2</th> <!-- index postion + 1 -->
-                        <th>Jonathon Ross</th> <!-- name entered -->
-                        <th>10</th> <!-- final score -->
+                        <th>2</th> 
+                        <th>Jonathon Ross</th> 
+                        <th>10</th> 
                     </tr>
                     <tr>
-                        <th>3</th> <!-- index postion + 1 -->
-                        <th>James</th> <!-- name entered -->
-                        <th>9</th> <!-- final score -->
+                        <th>3</th> 
+                        <th>James</th> 
+                        <th>9</th> 
                     </tr>
                     <tr>
-                        <th>4</th> <!-- index postion + 1 -->
-                        <th>Evil James</th> <!-- name entered -->
-                        <th>9</th> <!-- final score -->
+                        <th>4</th> 
+                        <th>Evil James</th> 
+                        <th>9</th> 
                     </tr>
                     <tr>
-                        <th>5</th> <!-- index postion + 1 -->
-                        <th>Snow white</th> <!-- name entered -->
-                        <th>8</th> <!-- final score -->
+                        <th>5</th> 
+                        <th>Snow White</th> 
+                        <th>8</th> 
                     </tr>
                     <tr>
-                        <th>6</th> <!-- index postion + 1 -->
-                        <th>Doc</th> <!-- name entered -->
-                        <th>7</th> <!-- final score -->
+                        <th>6</th> 
+                        <th>Doc</th> 
+                        <th>7</th> 
                     </tr>
                     <tr>
-                        <th>7</th> <!-- index postion + 1 -->
-                        <th>Bashful</th> <!-- name entered -->
-                        <th>6</th> <!-- final score -->
+                        <th>7</th> 
+                        <th>Bashful</th> 
+                        <th>6</th> 
                     </tr>
                     <tr>
-                        <th>8</th> <!-- index postion + 1 -->
-                        <th>Happy</th> <!-- name entered -->
-                        <th>6</th> <!-- final score -->
+                        <th>8</th> 
+                        <th>Happy</th> 
+                        <th>6</th> 
                     </tr>
                     <tr>
-                        <th>9</th> <!-- index postion + 1 -->
-                        <th>Sleepy</th> <!-- name entered -->
-                        <th>4</th> <!-- final score -->
+                        <th>9</th> 
+                        <th>Sleepy</th> 
+                        <th>4</th> 
                     </tr>
                     <tr>
-                        <th>10</th> <!-- index postion + 1 -->
-                        <th>Sneezy</th> <!-- name entered -->
-                        <th>3</th> <!-- final score -->
+                        <th>10</th> 
+                        <th>Sneezy</th> 
+                        <th>3</th> 
                     </tr>
                     <tr>
-                        <th>11</th> <!-- index postion + 1 -->
-                        <th>Dopey</th> <!-- name entered -->
-                        <th>1</th> <!-- final score -->
+                        <th>11</th> 
+                        <th>Dopey</th> 
+                        <th>1</th> 
                     </tr>
                     <tr>
-                        <th>12</th> <!-- index postion + 1 -->
-                        <th>Grumpy</th> <!-- name entered -->
-                        <th>0</th> <!-- final score -->
+                        <th>12</th> 
+                        <th>Grumpy</th> 
+                        <th>0</th> 
+                    </tr>
+                </tbody>  
+            </table>
+            <table id="leaderboard-easy" title="Easy Difficulty" class="hide">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th> 
+                        <th>Boolean Hooligans</th> 
+                        <th>12</th> 
+                    </tr>
+                    <tr>
+                        <th>2</th> 
+                        <th>Jonathon Ross</th> 
+                        <th>11</th> 
+                    </tr>
+                    <tr>
+                        <th>3</th> 
+                        <th>Rita</th> 
+                        <th>10</th> 
+                    </tr>
+                    <tr>
+                        <th>4</th> 
+                        <th>Sue</th> 
+                        <th>10</th> 
+                    </tr>
+                    <tr>
+                        <th>5</th> 
+                        <th>Bob</th> 
+                        <th>9</th> 
+                    </tr>
+                    <tr>
+                        <th>6</th> 
+                        <th>Louie</th> 
+                        <th>7</th> 
+                    </tr>
+                    <tr>
+                        <th>7</th> 
+                        <th>Dewey</th> 
+                        <th>6</th> 
+                    </tr>
+                    <tr>
+                        <th>8</th> 
+                        <th>Huey</th> 
+                        <th>6</th> 
+                    </tr>
+                    <tr>
+                        <th>9</th> 
+                        <th>Bert</th> 
+                        <th>5</th> 
+                    </tr>
+                    <tr>
+                        <th>10</th> 
+                        <th>Ernie</th> 
+                        <th>5</th> 
+                    </tr>
+                    <tr>
+                        <th>11</th> 
+                        <th>Steve from MySpace</th> 
+                        <th>5</th> 
+                    </tr>
+                    <tr>
+                        <th>12</th> 
+                        <th>Literally an alien that doesn't know what a film is</th> 
+                        <th>1</th> 
+                    </tr>
+                </tbody>  
+            </table>
+            <table id="leaderboard-medium" title="Medium Difficulty" class="hide">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th> 
+                        <th>Boolean Hooligans</th> 
+                        <th>12</th> 
+                    </tr>
+                    <tr>
+                        <th>2</th> 
+                        <th>Adam</th> 
+                        <th>10</th> 
+                    </tr>
+                    <tr>
+                        <th>3</th> 
+                        <th>Albery</th> 
+                        <th>9</th> 
+                    </tr>
+                    <tr>
+                        <th>4</th> 
+                        <th>Alfonso</th> 
+                        <th>9</th> 
+                    </tr>
+                    <tr>
+                        <th>5</th> 
+                        <th>Anthony</th> 
+                        <th>8</th> 
+                    </tr>
+                    <tr>
+                        <th>6</th> 
+                        <th>Aaron</th> 
+                        <th>7</th> 
+                    </tr>
+                    <tr>
+                        <th>7</th> 
+                        <th>Anna</th> 
+                        <th>6</th> 
+                    </tr>
+                    <tr>
+                        <th>8</th> 
+                        <th>Abigail</th> 
+                        <th>6</th> 
+                    </tr>
+                    <tr>
+                        <th>9</th> 
+                        <th>Aria</th> 
+                        <th>4</th> 
+                    </tr>
+                    <tr>
+                        <th>10</th> 
+                        <th>Aiden</th> 
+                        <th>3</th> 
+                    </tr>
+                    <tr>
+                        <th>11</th> 
+                        <th>Andy</th> 
+                        <th>1</th> 
+                    </tr>
+                    <tr>
+                        <th>12</th> 
+                        <th>Aaaadriaaaaaan!</th> 
+                        <th>0</th> 
+                    </tr>
+                </tbody>  
+            </table>
+            <table id="leaderboard-hard" title="Hard Difficulty" class="hide">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th> 
+                        <th>Boolean Hooligans</th> 
+                        <th>12</th> 
+                    </tr>
+                    <tr>
+                        <th>2</th> 
+                        <th>Einstein</th> 
+                        <th>11</th> 
+                    </tr>
+                    <tr>
+                        <th>3</th> 
+                        <th>Hawking</th> 
+                        <th>10</th> 
+                    </tr>
+                    <tr>
+                        <th>4</th> 
+                        <th>Curie</th> 
+                        <th>9</th> 
+                    </tr>
+                    <tr>
+                        <th>5</th> 
+                        <th>Bohr</th> 
+                        <th>9</th> 
+                    </tr>
+                    <tr>
+                        <th>6</th> 
+                        <th>Faraday</th> 
+                        <th>9</th> 
+                    </tr>
+                    <tr>
+                        <th>7</th> 
+                        <th>Planck</th> 
+                        <th>8</th> 
+                    </tr>
+                    <tr>
+                        <th>8</th> 
+                        <th>Oppenheimer</th> 
+                        <th>7</th> 
+                    </tr>
+                    <tr>
+                        <th>9</th> 
+                        <th>Feynman</th> 
+                        <th>7</th> 
+                    </tr>
+                    <tr>
+                        <th>10</th> 
+                        <th>Fermi</th> 
+                        <th>5</th> 
+                    </tr>
+                    <tr>
+                        <th>11</th> 
+                        <th>deGrasse Tyson</th> 
+                        <th>5</th> 
+                    </tr>
+                    <tr>
+                        <th>12</th> 
+                        <th>Tyson Fury</th> 
+                        <th>0</th> 
                     </tr>
                 </tbody>  
             </table>
@@ -146,24 +374,32 @@
         </div>
     </div>
 
-    <div class="reel">
+    <div class="reel-hz">
         <img src="assets/images/filmreel2.png" alt="Film Reel">
     </div>
 
     <footer id="social"> <!--footer with social icons -->
         <div class="social-icons">
             <a href="https://www.facebook.com/" target="_blank" rel="noopener"
-                aria-label="Visit our Facebook page (opens in a new tab)">
+                aria-label="Visit our Facebook page (opens in a new tab)"
+                title="Visit our Facebook page (opens in a new tab)">
                 <i class="fa-brands fa-facebook-f"></i></a>
             <a href="https://www.twitter.com/" target="_blank" rel="noopener"
-                aria-label="Visit our twitter page (opens in a new tab)">
+                aria-label="Visit our twitter page (opens in a new tab)"
+                title="Visit our twitter page (opens in a new tab)">
                 <i class="fab fa-twitter"></i></a>
             <a href="https://www.instagram.com" target="_blank" rel="noopener"
-                aria-label="Visit our instagram page (opens in a new tab)">
+                aria-label="Visit our instagram page (opens in a new tab)"
+                title="Visit our instagram page (opens in a new tab)">
                 <i class="fab fa-instagram"></i></a>
             <a href="https://www.youtube.com" target="_blank" rel="noopener"
-                aria-label="Visit our youtube page (opens in a new tab)">
+                aria-label="Visit our youtube page (opens in a new tab)"
+                title="Visit our youtube page (opens in a new tab)">
                 <i class="fab fa-youtube"></i></a>
+            <a href="mailto:?subject=Check%20out%20this%20quiz!&body=Hey,%20I%20thought%20you%20might%20be%20interested%20in%20this%20quiz:%20https://profyaffle88.github.io/movie-quiz/"
+                aria-label="Send this quiz to a friend by email"
+                title="Send this quiz to a friend by email">
+                <i class="fas fa-envelope"></i></a>
         </div>
     </footer>
 
