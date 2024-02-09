@@ -89,6 +89,9 @@ Quiz Accessibility:
 
 ### W3C CSS Validator
 ![image_720](https://github.com/ProfYaffle88/movie-quiz/assets/153202154/2425aaeb-9c9a-4342-ba6c-23c605896e7d)
+### JS Hint
+![image](https://github.com/ProfYaffle88/movie-quiz/assets/153202154/e84bb429-7313-4bc4-92cc-30238c2d0b65)
+
 
 ### Am I Responsive
 ![am_i_responsive_720](https://github.com/ProfYaffle88/movie-quiz/assets/153202154/a6ade55f-bea5-495e-b947-fe563e77878e)
