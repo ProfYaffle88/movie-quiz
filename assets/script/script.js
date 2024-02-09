@@ -31,7 +31,6 @@ let leaderboardScores = []; //Set leaderboard scores as an empty array
 // Event listener for difficulty selector dropdown change
 document.getElementById('difficulty-selector').addEventListener('change', function(event) {
     difficultyChosen = event.target.value;
-    console.log(difficultyChosen);
 });
 
 /* Event Listeners - "if target element exists"*/
@@ -269,15 +268,9 @@ function showFinalScore() {
 
     // Add event listener to playerNameInput
     playerNameInput.addEventListener('input', function(event) {
-    // Log the event and its properties to check for any issues
-    console.log('Event:', event);
-    console.log('Input value:', event.target.value);
 
     // Update playerName variable when input value changes
     playerName = event.target.value;
-
-    // Log playerName to verify its value
-    console.log('Player name:', playerName);
 });
 }
 
