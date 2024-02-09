@@ -127,9 +127,9 @@ https://github.com/ProfYaffle88/movie-quiz/blob/SNLanger-patch-1/assets/images/S
 Results: ....
 assets/images/Screenshot 2024-02-09 at 10.28.26.png
 
+https://github.com/ProfYaffle88/movie-quiz/blob/SNLanger-patch-1/assets/images/Screenshot%202024-02-09%20at%2010.28.26.png
 
   
- 
 Mobile View - Home Page,
 Mobile View - Results,
 Mobile View - About:
