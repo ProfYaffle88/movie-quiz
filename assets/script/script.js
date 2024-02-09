@@ -393,13 +393,12 @@ function updateLeaderboardView() {
 
 /* Start Game function */
 function startGame() {
+    const baseUrl = window.location.origin;
+    console.log(baseUrl);
     if (window.location.pathname !== '/index.html') {
         // Construct the URL dynamically
-        const baseUrl = window.location.origin;
-        console.log(baseUrl);
         const indexUrl = baseUrl + '/movie-quiz/index.html';
-        console.log(indexUrl);
-    
+        console.log(indexUrl);    
         // Redirect to index.html
         window.location.href = indexUrl;
         return; // Stop further execution of the function
