@@ -135,6 +135,7 @@ Mobile View - Results,
 Mobile View - About:
 
 assets/images/phone balsamiq.png
+https://github.com/ProfYaffle88/movie-quiz/blob/SNLanger-patch-1/assets/images/phone%20balsamiq.png
  
 Surface
  
