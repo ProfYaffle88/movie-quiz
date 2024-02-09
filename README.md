@@ -27,7 +27,7 @@ Quiz Accessibility:
 * Track User Progress: Implement features to track and display user progress throughout the quiz, including question count.
 * Display Final Score: Develop the functionality to display the user's final score at the end of the quiz, along with a breakdown of correct and incorrect answers.
 * Add Try Again Feature: Implement a "Try Again" button at the end of the quiz, allowing users to replay and attempt to improve their score.
-* Create Countdown or Progress Bar: Implement a visible countdown or progress bar during the quiz to indicate the time remaining for each question.
+* Create a Countdown or Progress Bar: Implement a visible countdown or progress bar during the quiz to indicate the time remaining for each question.
 
 # Features:
 ### * Connected via an API with questions and answers being generated.
@@ -77,7 +77,7 @@ Quiz Accessibility:
 ### Microsoft Edge
 ![image](https://github.com/ProfYaffle88/movie-quiz/assets/153202154/666d799e-0dcf-4d33-b59f-abb47e81403b)
 
-• ### Chrome Developer Tools are used to test the responsiveness on:
+ ### Chrome Developer Tools are used to test the responsiveness on:
  ### iPhone 6,7,8,
  ![image](https://github.com/ProfYaffle88/movie-quiz/assets/153202154/9c521b5f-78f4-4ea8-934d-af211623e63e)
 
