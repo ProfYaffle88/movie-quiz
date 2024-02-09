@@ -215,20 +215,19 @@ footer {
   body {
     font-size: 16px; /* Adjust font size for better readability on small screens */
     min-height: auto;
-    background: url("assets/images/filmreel4.png") no-repeat fixed center;
-    background-size: cover;
   }
 
   /* Causing size issues on small screens? */
   .reel-hz {
     display: none;
   }
+
   .reel-vrt {
     display: flex; /* Use flexbox */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     height: 100%; /* Take up full height of body */
-}
+  }
 
   .container {
     width: 100%; /* Make the container full-width on small screens */
@@ -284,9 +283,5 @@ footer {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     height: 100%; /* Take up full height of body */
-}
-  body {
-    background: url("assets/images/filmreel3.png") no-repeat fixed center;
-    background-size: cover;
   }
 }
