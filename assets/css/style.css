@@ -31,6 +31,10 @@ body {
   align-items: center;
   z-index: 50;
 }
+/* Instructions - align the text center? */
+#instructions {
+  align-content: center;
+}
 .controls {
   display: flex;
   justify-content: center;
