@@ -67,7 +67,7 @@ function eventListeners() {
         document.getElementById('instructions-btn').addEventListener('click', function(event) {
             // Prevent default form submission behavior
             event.preventDefault();
-            window.location = './movie-quiz/instructions.html';
+            window.location = '../../../instructions.html';
         });
     }
 }
@@ -386,7 +386,7 @@ function updateLeaderboardView() {
 function startGame() {
     if (window.location.pathname !== '/index.html') {
         // Redirect to index.html
-        window.location.href = 'movie-quiz/index.html';
+        window.location.href = '../../../index.html';
         return; // Stop further execution of the function
     }
     
