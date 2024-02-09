@@ -18,6 +18,7 @@ const leaderboardMedium = document.getElementById('leaderboard-medium');
 const leaderboardHard = document.getElementById('leaderboard-hard');
 const leaderboardRandom = document.getElementById('leaderboard-classic');
 const difficultyContainer = document.getElementById('difficulty-selector-container');
+const instructions = document.getElementById('instructions');
 // const difficultyChosen = document.getElementById('difficulty-selector');
 const difficultyLabel = document.getElementById('diff-select-label');
 let playerNameInput = document.getElementById('player-name-submit');
@@ -80,6 +81,7 @@ function revealLeaderboard() {
     seeLeaderboard.classList.add('hide');
     difficultyLabel.classList.add('hide');
     difficultyContainer.classList.add('hide');
+    instructions.classList.add('hide');
 
     switch (difficultyChosen) {
         case 'easy':
@@ -393,6 +395,7 @@ function startGame() {
     seeLeaderboard.classList.add('hide');
     difficultyLabel.classList.add('hide');
     difficultyContainer.classList.add('hide');
+    instructions.classList.add('hide');
 
     // fetch questions for game
     getQuestions();
