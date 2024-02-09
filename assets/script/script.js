@@ -16,7 +16,7 @@ const seeLeaderboard = document.getElementById('leaderboard-btn');
 const leaderboardEasy = document.getElementById('leaderboard-easy');
 const leaderboardMedium = document.getElementById('leaderboard-medium');
 const leaderboardHard = document.getElementById('leaderboard-hard');
-const leaderboardRandom = document.getElementById('leaderboard-random');
+const leaderboardRandom = document.getElementById('leaderboard-classic');
 const difficultyContainer = document.getElementById('difficulty-selector-container');
 // const difficultyChosen = document.getElementById('difficulty-selector');
 const difficultyLabel = document.getElementById('diff-select-label');
@@ -24,7 +24,7 @@ let playerNameInput = document.getElementById('player-name-submit');
 let playerName = '';
 
 let timer, timeLeft, score, currentQuestionIndex, questionsList, answered, leaderboardRows, difficultyChosen;
-let leaderboardScores = []; //Set leaderboard scores as an empty array - pull existing leaderboard?
+let leaderboardScores = []; //Set leaderboard scores as an empty array
 
 /* Global event listners */
 // Event listener for difficulty selector dropdown change
@@ -52,11 +52,17 @@ function eventListeners() {
     }
     if (seeLeaderboard) {
         document.getElementById('leaderboard-btn').addEventListener('click', function(event) {
-        // Prevent default form submission behavior
-        event.preventDefault();
-        
-        // Call the Reveal Leaderboard function
-        revealLeaderboard();
+            // Prevent default form submission behavior
+            event.preventDefault();
+            
+            // Check if a difficulty level is selected
+            if (!difficultyChosen) {
+                // If no difficulty level is selected, set it to "classic"
+                difficultyChosen = "classic";
+            }
+            
+            // Call the revealLeaderboard function
+            revealLeaderboard();
         });
     }
 }
@@ -90,9 +96,9 @@ function revealLeaderboard() {
     }
     tryAgainButton.classList.remove('hide');
     leaderboardButton.classList.add('hide'); // Hide submite score field
-
+    
     // Apply medal colors to existing leaderboard rows
-    let leaderboardRows = document.querySelectorAll(`#leaderboard-${difficultyChosen} tbody tr`);
+    leaderboardRows = document.querySelectorAll(`#leaderboard-${difficultyChosen} tbody tr`);
     let colors = ["gold", "silver", "#cd7f32"];
 
     leaderboardRows.forEach((row, index) => {
@@ -286,6 +292,12 @@ function captureScore() {
     // Remove event listener from start button - Was causing error?
     startButton.removeEventListener('click', startGame); 
     
+    // Check if a difficulty level is selected
+    if (!difficultyChosen) {
+        // If no difficulty level is selected, set it to "classic"
+        difficultyChosen = "classic";
+    }
+    
     // Get player name from form input
     playerNameInput = document.getElementById('player-name-submit');
     playerName = playerNameInput.value;
@@ -311,7 +323,7 @@ function captureScore() {
                 leaderboardRows = document.querySelectorAll('#leaderboard-hard tbody tr');
                 break;
             default:
-                leaderboardRows = document.querySelectorAll('#leaderboard tbody tr');
+                leaderboardRows = document.querySelectorAll('#leaderboard-classic tbody tr');
         }
 
     // Clear existing scores from the scores array
